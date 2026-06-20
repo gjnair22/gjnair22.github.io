@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gowri J Nair — Data Analyst Portfolio</title>
+    <style>
+        :root {
+            --navy: #1F3864;
+            --accent: #2E74B5;
+            --accent-light: #E6F1FB;
+            --accent-mid: #B5D4F4;
+            --text: #1a1a1a;
+            --muted: #5a5a5a;
+            --border: #e2e2e2;
+            --bg: #ffffff;
+            --bg2: #f7f8fa;
+            --bg3: #f0f2f5;
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--text);
+            background: var(--bg3);
+            font-size: 16px;
+            line-height: 1.65
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 18px;
+            letter-spacing: -.01em
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 500;
+            transition: color .2s
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        /* ── PAGE WRAPPER ── */
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 5rem
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap
+        }
+
+        .avatar-wrap {
+            flex-shrink: 0
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--accent);
+            border: 3px solid var(--accent-mid);
+            object-fit: cover;
+            overflow: hidden
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .hero-text h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 6px;
+            letter-spacing: -.02em
+        }
+
+        .hero-text .subtitle {
+            font-size: 17px;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px
+        }
+
+        .relocate-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            padding: 4px 13px;
+            border-radius: 100px;
+            background: #EAF3DE;
+            border: 1px solid #C0DD97;
+            color: #3B6D11;
+            font-weight: 500
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1.25rem
+        }
+
+        .contact-row a {
+            font-size: 14px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border: 1px solid var(--accent-mid);
+            border-radius: 100px;
+            background: var(--accent-light);
+            font-weight: 500;
+            transition: background .2s
+        }
+
+        .contact-row a:hover {
+            background: var(--accent-mid);
+            text-decoration: none
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .badge {
+            font-size: 13px;
+            padding: 5px 14px;
+            border-radius: 100px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        .badge.hi {
+            background: var(--accent-light);
+            border-color: var(--accent-mid);
+            color: var(--accent);
+            font-weight: 600
+        }
+
+        /* ── STATS ── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem
+        }
+
+        .stat-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            text-align: center
+        }
+
+        .stat-card .num {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--navy)
+        }
+
+        .stat-card .lbl {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        /* ── SECTION ── */
+        .section {
+            margin-bottom: 2.5rem
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border)
+        }
+
+        /* ── PROJECT CARDS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem
+        }
+
+        .pcard {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow .25s, border-color .25s
+        }
+
+        .pcard:hover {
+            box-shadow: 0 6px 28px rgba(30, 56, 100, .1);
+            border-color: var(--accent-mid)
+        }
+
+        /* ── SCREENSHOT / CAROUSEL ── */
+        .screenshot {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .3s
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.03)
+        }
+
+        /* click-to-expand hint */
+        .expand-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(31, 56, 100, .75);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 100px;
+            opacity: 0;
+            transition: opacity .25s;
+            pointer-events: none;
+            letter-spacing: .02em
+        }
+
+        .screenshot:hover .expand-hint {
+            opacity: 1
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform .4s ease-in-out;
+            width: 100%;
+            height: 100%
+        }
+
+        .carousel-track img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(31, 56, 100, .72);
+            color: #fff;
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            opacity: 0;
+            transition: opacity .2s, background .2s;
+            z-index: 10
+        }
+
+        .screenshot:hover .carousel-btn {
+            opacity: 1
+        }
+
+        .carousel-btn:hover {
+            background: rgba(31, 56, 100, .92)
+        }
+
+        .carousel-btn.prev {
+            left: 10px
+        }
+
+        .carousel-btn.next {
+            right: 10px
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .5);
+            cursor: pointer;
+            transition: background .2s, width .2s
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, .8)
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 20px;
+            border-radius: 4px
+        }
+
+        /* ── CARD BODY ── */
+        .pcard-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .pcard-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px
+        }
+
+        .pcard-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px
+        }
+
+        .pcard-icon.bi {
+            background: var(--accent-light)
+        }
+
+        .pcard-icon.ml {
+            background: #EAF3DE
+        }
+
+        .pcard-icon.db {
+            background: #FAEEDA
+        }
+
+        .pcard-tag {
+            font-size: 12px;
+            padding: 4px 11px;
+            border-radius: 100px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            white-space: nowrap;
+            font-weight: 500
+        }
+
+        .pcard-body h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.35
+        }
+
+        .pcard-body p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.65;
+            flex: 1
+        }
+
+        .tool-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .tool {
+            font-size: 12px;
+            padding: 3px 11px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            background: var(--bg2);
+            font-weight: 500
+        }
+
+        .pcard-footer {
+            border-top: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .pcard-footer a {
+            font-size: 14px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500
+        }
+
+        .pcard-footer a:hover {
+            text-decoration: underline
+        }
+
+        .no-link {
+            font-size: 13px;
+            color: var(--muted);
+            font-style: italic
+        }
+
+        /* ── LIGHTBOX ── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 15, 30, .88);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem
+        }
+
+        #lightbox.open {
+            display: flex
+        }
+
+        .lb-inner {
+            position: relative;
+            max-width: 1200px;
+            width: 100%;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, .5)
+        }
+
+        .lb-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg)
+        }
+
+        .lb-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+        .lb-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--muted);
+            line-height: 1;
+            padding: 0 4px;
+            transition: color .2s
+        }
+
+        .lb-close:hover {
+            color: var(--navy)
+        }
+
+        .lb-img-wrap {
+            position: relative;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px
+        }
+
+        .lb-track {
+            display: flex;
+            transition: transform .4s ease-in-out;
+            width: 100%
+        }
+
+        .lb-track img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: contain;
+            max-height: 75vh
+        }
+
+        .lb-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(31, 56, 100, .8);
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s;
+            z-index: 10
+        }
+
+        .lb-btn:hover {
+            background: rgba(31, 56, 100, 1)
+        }
+
+        .lb-btn.prev {
+            left: 14px
+        }
+
+        .lb-btn.next {
+            right: 14px
+        }
+
+        .lb-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: .875rem 0;
+            background: var(--bg)
+        }
+
+        .lb-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: background .2s, width .2s
+        }
+
+        .lb-dot.active {
+            background: var(--accent);
+            width: 24px;
+            border-radius: 5px
+        }
+
+        /* ── XAI WIDGET ── */
+        .xai-widget {
+            width: 100%;
+            height: 100%;
+            background: #fdfdfd;
+            display: flex;
+            flex-direction: column;
+            padding: 14px 16px;
+            box-sizing: border-box
+        }
+
+        .xai-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 10px
+        }
+
+        .xai-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+        .xai-tabs {
+            display: flex;
+            gap: 4px
+        }
+
+        .xai-tab-btn {
+            font-size: 11px;
+            padding: 3px 9px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            cursor: pointer;
+            color: var(--muted);
+            font-weight: 600;
+            transition: all .2s
+        }
+
+        .xai-tab-btn.active {
+            background: #EAF3DE;
+            border-color: #C0DD97;
+            color: #3B6D11
+        }
+
+        .xai-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .xai-bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .xai-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: help
+        }
+
+        .xai-bar-label {
+            width: 90px;
+            font-size: 12px;
+            color: var(--muted);
+            text-align: right;
+            white-space: nowrap
+        }
+
+        .xai-bar-container {
+            flex: 1;
+            height: 14px;
+            background: var(--bg2);
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, .05)
+        }
+
+        .xai-bar-fill {
+            height: 100%;
+            background: #a3db74;
+            border-radius: 5px;
+            transition: width .8s cubic-bezier(.4, 0, .2, 1), background-color .2s
+        }
+
+        .xai-bar-row:hover .xai-bar-fill {
+            background: #3B6D11
+        }
+
+        .xai-bar-val {
+            width: 36px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+        .shap-force-plot {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            height: 100%
+        }
+
+        .shap-scale {
+            width: 100%;
+            height: 26px;
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid var(--border)
+        }
+
+        .shap-push-higher {
+            background: #ffcdd2;
+            flex: 6;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: #c62828;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .shap-push-lower {
+            background: #bbdefb;
+            flex: 4;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 8px;
+            color: #1565c0;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .shap-base-val {
+            font-size: 12px;
+            color: var(--text);
+            text-align: center
+        }
+
+        /* ── PET WIDGET ── */
+        .pet-widget {
+            width: 100%;
+            height: 100%;
+            background: #fffdf9;
+            display: flex;
+            flex-direction: column;
+            padding: 12px 14px;
+            box-sizing: border-box
+        }
+
+        .pet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #fde68a;
+            padding-bottom: 5px;
+            margin-bottom: 8px
+        }
+
+        .pet-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #854F0B
+        }
+
+        .pet-sim-form {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 8px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .pet-select {
+            font-size: 11px;
+            padding: 3px 6px;
+            border-radius: 5px;
+            border: 1px solid #fde68a;
+            background: #fff;
+            color: #5c4400
+        }
+
+        .pet-btn {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 5px;
+            border: none;
+            background: #854F0B;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s
+        }
+
+        .pet-btn:hover {
+            background: #5c4400
+        }
+
+        .pet-table-container {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #fde68a;
+            border-radius: 5px;
+            background: #fff
+        }
+
+        .pet-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            text-align: left
+        }
+
+        .pet-table th {
+            background: #FAEEDA;
+            color: #854F0B;
+            padding: 5px 8px;
+            font-weight: 700;
+            position: sticky;
+            top: 0
+        }
+
+        .pet-table td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #fcf7eb;
+            color: var(--text)
+        }
+
+        .pet-table tr:last-child td {
+            border-bottom: none
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem
+        }
+
+        .skill-box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem
+        }
+
+        .skill-box .sk-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px
+        }
+
+        .sk-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px
+        }
+
+        .sk-pill {
+            font-size: 13px;
+            padding: 4px 13px;
+            border-radius: 100px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        /* ── CERTS ── */
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: .875rem
+        }
+
+        .cert {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .cert-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0
+        }
+
+        .cert-icon.aws {
+            background: #FAEEDA
+        }
+
+        .cert-icon.pbi {
+            background: var(--accent-light)
+        }
+
+        .cert-info p {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+        .cert-info span {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* ── EDUCATION ── */
+        .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: .875rem
+        }
+
+        .edu {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .edu-left p {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+        .edu-left span {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .edu-right {
+            text-align: right;
+            flex-shrink: 0
+        }
+
+        .edu-right .pct {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--accent)
+        }
+
+        .edu-right .yr {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* ── LANGUAGES ── */
+        .lang-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .875rem
+        }
+
+        .lang {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 140px
+        }
+
+        .lang .lang-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .lang .lang-level {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            font-size: 14px;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+            margin-top: 2rem
+        }
+
+        footer a {
+            color: var(--accent)
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:700px) {
+            .hero {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center
+            }
+
+            .contact-row {
+                justify-content: center
+            }
+
+            .badge-row {
+                justify-content: center
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .edu {
+                flex-direction: column
+            }
+
+            .edu-right {
+                text-align: left
+            }
+
+            .hero-text h1 {
+                font-size: 28px
+            }
+
+            .avatar {
+                width: 96px;
+                height: 96px;
+                font-size: 30px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-logo">Gowri J Nair</span>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#education">Education</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page">
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="avatar-wrap">
+                <img class="avatar" src="profile.png" alt="Gowri J Nair"
+                    onerror="this.outerHTML='<div class=\'avatar\'>GN</div>'" />
+            </div>
+            <div class="hero-text">
+                <h1>Gowri J Nair</h1>
+                <p class="subtitle">
+                    Data Analyst &nbsp;·&nbsp; Bangalore, India
+                    <span class="relocate-tag">✈ Available to relocate — Dubai, UAE</span>
+                </p>
+                <div class="contact-row">
+                    <a href="mailto:gjnair93@gmail.com">✉ gjnair93@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/gowri-j-nair-8471322a6" target="_blank">in LinkedIn</a>
+                    <a href="https://github.com/gjnair22" target="_blank">&#x2756; GitHub</a>
+                    <a href="tel:+917676425251">&#128222; +91 76764 25251</a>
+                </div>
+                <div class="badge-row">
+                    <span class="badge hi">Power BI</span>
+                    <span class="badge hi">SQL</span>
+                    <span class="badge hi">Python</span>
+                    <span class="badge hi">DAX</span>
+                    <span class="badge">M.Sc. Data Science — 86.51%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="num">5</div>
+                <div class="lbl">Projects built</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">86.51%</div>
+                <div class="lbl">M.Sc. aggregate</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">2</div>
+                <div class="lbl">Certifications</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">5</div>
+                <div class="lbl">Languages spoken</div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section" id="projects">
+            <div class="section-title">Projects</div>
+            <div class="projects-grid">
+
+                <!-- Supply Chain -->
+                <div class="pcard">
+                    <div class="screenshot carousel" id="carousel-supplychain" onclick="openLightbox('lb-supplychain')">
+                        <div class="carousel-track">
+                            <img src="sc_2.png" alt="Supply Chain Dashboard — Executive Overview" />
+                            <img src="sc_1.png" alt="Supply Chain Dashboard — Inventory & Supplier" />
+                        </div>
+                        <button class="carousel-btn prev"
+                            onclick="event.stopPropagation();moveCarousel('carousel-supplychain',-1)">&#10094;</button>
+                        <button class="carousel-btn next"
+                            onclick="event.stopPropagation();moveCarousel('carousel-supplychain',1)">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active"
+                                onclick="event.stopPropagation();setSlide('carousel-supplychain',0)"></span>
+                            <span class="dot"
+                                onclick="event.stopPropagation();setSlide('carousel-supplychain',1)"></span>
+                        </div>
+                        <span class="expand-hint">&#128247; Click to expand</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-top">
+                            <div class="pcard-icon bi">📦</div>
+                            <span class="pcard-tag">Power BI · 2026</span>
+                        </div>
+                        <h3>Supply Chain Analytics Dashboard</h3>
+                        <p>Multi-page dashboard covering inventory, supplier efficiency, manufacturing costs, and
+                            logistics KPIs. Built DAX measures for Revenue, Stock Levels, Lead Time, and Defect Rate.
+                        </p>
+                        <div class="tool-row">
+                            <span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power
+                                Query</span><span class="tool">Business Intelligence</span>
+                        </div>
+                    </div>
+                    <div class="pcard-footer">
+                        <a href="https://github.com/gjnair22/Supply-Chain-Analytics-Dashboard-using-Power-BI"
+                            target="_blank">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- HR Analytics -->
+                <div class="pcard">
+                    <div class="screenshot carousel" id="carousel-hr" onclick="openLightbox('lb-hr')">
+                        <div class="carousel-track">
+                            <img src="hr_3.png" alt="HR Dashboard — Executive Summary" />
+                            <img src="hr_2.png" alt="HR Dashboard — Demographics" />
+                            <img src="hr_1.png" alt="HR Dashboard — Attrition Drivers" />
+                        </div>
+                        <button class="carousel-btn prev"
+                            onclick="event.stopPropagation();moveCarousel('carousel-hr',-1)">&#10094;</button>
+                        <button class="carousel-btn next"
+                            onclick="event.stopPropagation();moveCarousel('carousel-hr',1)">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="event.stopPropagation();setSlide('carousel-hr',0)"></span>
+                            <span class="dot" onclick="event.stopPropagation();setSlide('carousel-hr',1)"></span>
+                            <span class="dot" onclick="event.stopPropagation();setSlide('carousel-hr',2)"></span>
+                        </div>
+                        <span class="expand-hint">&#128247; Click to expand</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-top">
+                            <div class="pcard-icon bi">👥</div>
+                            <span class="pcard-tag">Power BI · 2026</span>
+                        </div>
+                        <h3>HR Analytics Dashboard</h3>
+                        <p>Analyzed employee attrition, workforce demographics, and compensation trends. Identified key
+                            attrition drivers — R&amp;D staff, overtime workers, and lower-income groups.</p>
+                        <div class="tool-row">
+                            <span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power
+                                Query</span><span class="tool">HR Analytics</span>
+                        </div>
+                    </div>
+                    <div class="pcard-footer">
+                        <a href="https://github.com/gjnair22/HR-Analytics-Dashboard-using-Power-BI" target="_blank">View
+                            on GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Superstore -->
+                <div class="pcard">
+                    <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+                        <img src="superstore.png" alt="Superstore Sales Dashboard" />
+                        <span class="expand-hint">&#128247; Click to expand</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-top">
+                            <div class="pcard-icon bi">📊</div>
+                            <span class="pcard-tag">Power BI · 2025</span>
+                        </div>
+                        <h3>Superstore Sales &amp; Profit Dashboard</h3>
+                        <p>Interactive dashboard on 9,994 retail transactions tracking revenue, profit margin, and sales
+                            by region, category, and segment. West led sales; Technology had highest margin.</p>
+                        <div class="tool-row">
+                            <span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power
+                                Query</span><span class="tool">Excel</span>
+                        </div>
+                    </div>
+                    <div class="pcard-footer">
+                        <a href="https://github.com/gjnair22/Superstore-Sales-and-Profit-Analysis-Dashboard-using-PowerBI"
+                            target="_blank">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- XAI -->
+                <div class="pcard">
+                    <div class="screenshot" style="cursor:default">
+                        <div class="xai-widget">
+                            <div class="xai-header">
+                                <span class="xai-title">🧠 SHAP Explainer (Interactive)</span>
+                                <div class="xai-tabs">
+                                    <button class="xai-tab-btn active" id="xai-tab-imp"
+                                        onclick="switchXaiTab('imp')">Importance</button>
+                                    <button class="xai-tab-btn" id="xai-tab-force" onclick="switchXaiTab('force')">Force
+                                        Plot</button>
+                                </div>
+                            </div>
+                            <div class="xai-content">
+                                <div class="xai-bar-chart" id="xai-chart-imp">
+                                    <div class="xai-bar-row" title="Chest pain type — highest heart risk indicator">
+                                        <span class="xai-bar-label">Chest Pain</span>
+                                        <div class="xai-bar-container">
+                                            <div class="xai-bar-fill" style="width:85%"></div>
+                                        </div>
+                                        <span class="xai-bar-val">0.85</span>
+                                    </div>
+                                    <div class="xai-bar-row" title="Max heart rate in stress test">
+                                        <span class="xai-bar-label">Max HR</span>
+                                        <div class="xai-bar-container">
+                                            <div class="xai-bar-fill" style="width:72%"></div>
+                                        </div>
+                                        <span class="xai-bar-val">0.72</span>
+                                    </div>
+                                    <div class="xai-bar-row" title="Patient age in years">
+                                        <span class="xai-bar-label">Age</span>
+                                        <div class="xai-bar-container">
+                                            <div class="xai-bar-fill" style="width:48%"></div>
+                                        </div>
+                                        <span class="xai-bar-val">0.48</span>
+                                    </div>
+                                    <div class="xai-bar-row" title="Serum cholesterol level (mg/dl)">
+                                        <span class="xai-bar-label">Cholesterol</span>
+                                        <div class="xai-bar-container">
+                                            <div class="xai-bar-fill" style="width:35%"></div>
+                                        </div>
+                                        <span class="xai-bar-val">0.35</span>
+                                    </div>
+                                </div>
+                                <div class="shap-force-plot" id="xai-chart-force" style="display:none">
+                                    <div class="shap-scale">
+                                        <div class="shap-push-lower">◄ Lower Risk (MaxHR=162)</div>
+                                        <div class="shap-push-higher">Higher Risk (ChestPain=Asym) ►</div>
+                                    </div>
+                                    <div class="shap-base-val"><strong>Output Value: 0.74</strong> &nbsp;(Base Value:
+                                        0.35)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-top">
+                            <div class="pcard-icon ml">🧠</div>
+                            <span class="pcard-tag">Python · ML · 2025</span>
+                        </div>
+                        <h3>Heart Disease Detection Using Explainable AI</h3>
+                        <p>Built and benchmarked Logistic Regression, Random Forest &amp; XGBoost on clinical data.
+                            Applied SHAP to translate complex model outputs into stakeholder-ready insights.</p>
+                        <div class="tool-row">
+                            <span class="tool">Python</span><span class="tool">Scikit-learn</span><span
+                                class="tool">XGBoost</span><span class="tool">SHAP</span><span
+                                class="tool">Pandas</span>
+                        </div>
+                    </div>
+                    <div class="pcard-footer">
+                        <span class="no-link">Academic research project</span>
+                    </div>
+                </div>
+
+                <!-- Pet Grooming -->
+                <div class="pcard">
+                    <div class="screenshot" style="cursor:default">
+                        <div class="pet-widget">
+                            <div class="pet-header">
+                                <span class="pet-title">🗄 Booking DB Simulation</span>
+                            </div>
+                            <div class="pet-sim-form">
+                                <select class="pet-select" id="pet-type">
+                                    <option>🐕 Dog (Max)</option>
+                                    <option>🐈 Cat (Luna)</option>
+                                    <option>🐇 Rabbit (Coco)</option>
+                                </select>
+                                <select class="pet-select" id="pet-service">
+                                    <option>Full Groom ($40)</option>
+                                    <option>Bath &amp; Brush ($20)</option>
+                                    <option>Nail Trim ($10)</option>
+                                </select>
+                                <button class="pet-btn" onclick="addBooking()">Book</button>
+                            </div>
+                            <div class="pet-table-container">
+                                <table class="pet-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Pet</th>
+                                            <th>Service</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pet-rows">
+                                        <tr>
+                                            <td>#104</td>
+                                            <td>🐕 Dog (Bella)</td>
+                                            <td>Full Groom</td>
+                                            <td><span style="color:#2e7d32;font-weight:700">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#105</td>
+                                            <td>🐈 Cat (Oliver)</td>
+                                            <td>Bath &amp; Brush</td>
+                                            <td><span style="color:#e65100;font-weight:700">Pending</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-top">
+                            <div class="pcard-icon db">🗄</div>
+                            <span class="pcard-tag">PHP · MySQL · 2024</span>
+                        </div>
+                        <h3>Pet Grooming Booking Platform</h3>
+                        <p>Full-stack web app with normalized relational database, CRUD operations, session handling,
+                            and an admin dashboard for operational booking analytics.</p>
+                        <div class="tool-row">
+                            <span class="tool">SQL</span><span class="tool">MySQL</span><span
+                                class="tool">PHP</span><span class="tool">Database Design</span>
+                        </div>
+                    </div>
+                    <div class="pcard-footer">
+                        <span class="no-link">Academic project</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="section" id="skills">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <div class="sk-label">Data Analytics &amp; Business Intelligence</div>
+                    <div class="sk-pills">
+                        <span class="sk-pill">Power BI</span><span class="sk-pill">Power Query</span><span
+                            class="sk-pill">DAX</span><span class="sk-pill">Microsoft Excel</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <div class="sk-label">Programming &amp; Data Analysis</div>
+                    <div class="sk-pills">
+                        <span class="sk-pill">Python</span><span class="sk-pill">SQL</span><span
+                            class="sk-pill">R</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <div class="sk-label">Libraries</div>
+                    <div class="sk-pills">
+                        <span class="sk-pill">Pandas</span><span class="sk-pill">NumPy</span><span
+                            class="sk-pill">Matplotlib</span><span class="sk-pill">Scikit-learn</span><span
+                            class="sk-pill">SHAP</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <div class="sk-label">Analytics</div>
+                    <div class="sk-pills">
+                        <span class="sk-pill">EDA</span><span class="sk-pill">Feature Engineering</span><span
+                            class="sk-pill">Statistical Analysis</span><span class="sk-pill">Dashboard
+                            Development</span><span class="sk-pill">Predictive Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="section" id="certifications">
+            <div class="section-title">Certifications</div>
+            <div class="cert-list">
+                <div class="cert">
+                    <div class="cert-icon aws">☁</div>
+                    <div class="cert-info">
+                        <p>AWS Cloud Practitioner Essentials</p>
+                        <span>Amazon Web Services &nbsp;·&nbsp; Oct 2025</span>
+                    </div>
+                </div>
+                <div class="cert">
+                    <div class="cert-icon pbi">📊</div>
+                    <div class="cert-info">
+                        <p>Microsoft Power BI Desktop for Business Intelligence</p>
+                        <span>Udemy — Maven Analytics &nbsp;·&nbsp; Jan 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section" id="education">
+            <div class="section-title">Education</div>
+            <div class="edu-list">
+                <div class="edu">
+                    <div class="edu-left">
+                        <p>M.Sc. Computer Science (Data Science)</p>
+                        <span>Mount Carmel College, Autonomous, Bangalore</span>
+                    </div>
+                    <div class="edu-right">
+                        <div class="pct">86.51%</div>
+                        <div class="yr">2024 – 2026</div>
+                    </div>
+                </div>
+                <div class="edu">
+                    <div class="edu-left">
+                        <p>B.Sc. Computer Science &amp; Statistics</p>
+                        <span>Mount Carmel College, Autonomous, Bangalore</span>
+                    </div>
+                    <div class="edu-right">
+                        <div class="yr">2021 – 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="section">
+            <div class="section-title">Languages</div>
+            <div class="lang-row">
+                <div class="lang"><span class="lang-name">English</span><span class="lang-level">Fluent</span></div>
+                <div class="lang"><span class="lang-name">Malayalam</span><span class="lang-level">Fluent</span></div>
+                <div class="lang"><span class="lang-name">Kannada</span><span class="lang-level">Fluent</span></div>
+                <div class="lang"><span class="lang-name">Hindi</span><span class="lang-level">Intermediate</span></div>
+                <div class="lang"><span class="lang-name">Tamil</span><span class="lang-level">Conversational</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        Gowri J Nair &nbsp;·&nbsp; Data Analyst &nbsp;·&nbsp; Bangalore, India &nbsp;·&nbsp; Available to relocate to
+        Dubai, UAE<br><br>
+        <a href="mailto:gjnair93@gmail.com">gjnair93@gmail.com</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/gowri-j-nair-8471322a6" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+        <a href="https://github.com/gjnair22" target="_blank">GitHub</a>
+    </footer>
+
+    <!-- ══════════════ LIGHTBOXES ══════════════ -->
+
+    <!-- Supply Chain Lightbox -->
+    <div id="lb-supplychain" class="lb-inner" style="display:none">
+        <div class="lb-header">
+            <span class="lb-title">📦 Supply Chain Analytics Dashboard</span>
+            <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+        </div>
+        <div class="lb-img-wrap">
+            <div class="lb-track" id="lb-supplychain-track">
+                <img src="sc_2.png" alt="Supply Chain — Executive Overview" />
+                <img src="sc_1.png" alt="Supply Chain — Inventory & Supplier" />
+            </div>
+            <button class="lb-btn prev" onclick="moveLb('lb-supplychain',-1)">&#10094;</button>
+            <button class="lb-btn next" onclick="moveLb('lb-supplychain',1)">&#10095;</button>
+        </div>
+        <div class="lb-dots" id="lb-supplychain-dots">
+            <span class="lb-dot active" onclick="setLbSlide('lb-supplychain',0)"></span>
+            <span class="lb-dot" onclick="setLbSlide('lb-supplychain',1)"></span>
+        </div>
+    </div>
+
+    <!-- HR Analytics Lightbox -->
+    <div id="lb-hr" class="lb-inner" style="display:none">
+        <div class="lb-header">
+            <span class="lb-title">👥 HR Analytics Dashboard</span>
+            <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+        </div>
+        <div class="lb-img-wrap">
+            <div class="lb-track" id="lb-hr-track">
+                <img src="hr_3.png" alt="HR — Executive Summary" />
+                <img src="hr_2.png" alt="HR — Demographics" />
+                <img src="hr_1.png" alt="HR — Attrition Drivers" />
+            </div>
+            <button class="lb-btn prev" onclick="moveLb('lb-hr',-1)">&#10094;</button>
+            <button class="lb-btn next" onclick="moveLb('lb-hr',1)">&#10095;</button>
+        </div>
+        <div class="lb-dots" id="lb-hr-dots">
+            <span class="lb-dot active" onclick="setLbSlide('lb-hr',0)"></span>
+            <span class="lb-dot" onclick="setLbSlide('lb-hr',1)"></span>
+            <span class="lb-dot" onclick="setLbSlide('lb-hr',2)"></span>
+        </div>
+    </div>
+
+    <!-- Superstore Lightbox -->
+    <div id="lb-superstore" class="lb-inner" style="display:none">
+        <div class="lb-header">
+            <span class="lb-title">📊 Superstore Sales &amp; Profit Dashboard</span>
+            <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+        </div>
+        <div class="lb-img-wrap">
+            <div class="lb-track" id="lb-superstore-track">
+                <img src="superstore.png" alt="Superstore Dashboard" />
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox" onclick="if(event.target===this)closeLightbox()">
+        <div id="lightbox-content"></div>
+    </div>
+
+    <script>
+        /* ── CARD CAROUSELS ── */
+        function moveCarousel(id, dir) {
+            const el = document.getElementById(id);
+            const track = el.querySelector('.carousel-track');
+            const slides = track.children.length;
+            let idx = +(el.dataset.index || 0) + dir;
+            if (idx < 0) idx = slides - 1;
+            if (idx >= slides) idx = 0;
+            el.dataset.index = idx;
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            el.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+        function setSlide(id, idx) {
+            const el = document.getElementById(id);
+            const track = el.querySelector('.carousel-track');
+            el.dataset.index = idx;
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            el.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+
+        /* ── LIGHTBOX ── */
+        function openLightbox(id) {
+            const lb = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+            const inner = document.getElementById(id);
+            content.innerHTML = '';
+            content.appendChild(inner.cloneNode(true));
+            // reset lightbox track to slide 0
+            const track = content.querySelector('.lb-track');
+            if (track) track.style.transform = 'translateX(0)';
+            content.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === 0));
+            // store which lb is open
+            lb.dataset.current = id;
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+            const lb = document.getElementById('lightbox');
+            if (!lb.classList.contains('open')) return;
+            const id = lb.dataset.current;
+            if (e.key === 'ArrowRight') moveLb(id, 1);
+            if (e.key === 'ArrowLeft') moveLb(id, -1);
+        });
+
+        function moveLb(id, dir) {
+            const content = document.getElementById('lightbox-content');
+            const track = content.querySelector('.lb-track');
+            if (!track) return;
+            const slides = track.children.length;
+            let idx = +(track.dataset.index || 0) + dir;
+            if (idx < 0) idx = slides - 1;
+            if (idx >= slides) idx = 0;
+            track.dataset.index = idx;
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            content.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+        function setLbSlide(id, idx) {
+            const content = document.getElementById('lightbox-content');
+            const track = content.querySelector('.lb-track');
+            if (!track) return;
+            track.dataset.index = idx;
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            content.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+
+        /* ── XAI TAB ── */
+        function switchXaiTab(tab) {
+            document.getElementById('xai-chart-imp').style.display = tab === 'imp' ? 'flex' : 'none';
+            document.getElementById('xai-chart-force').style.display = tab === 'force' ? 'flex' : 'none';
+            document.getElementById('xai-tab-imp').classList.toggle('active', tab === 'imp');
+            document.getElementById('xai-tab-force').classList.toggle('active', tab === 'force');
+        }
+
+        /* ── PET BOOKING SIM ── */
+        let nextId = 106;
+        function addBooking() {
+            const pet = document.getElementById('pet-type').value;
+            const svc = document.getElementById('pet-service');
+            const service = svc.options[svc.selectedIndex].text.replace(/ \(\$\d+\)/, '');
+            const tbody = document.getElementById('pet-rows');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>#${nextId++}</td><td>${pet}</td><td>${service}</td><td><span style="color:#e65100;font-weight:700">Pending</span></td>`;
+            tr.style.opacity = 0;
+            tbody.appendChild(tr);
+            setTimeout(() => tr.style.cssText += ';opacity:1;transition:opacity .4s', 10);
+            if (tbody.children.length > 4) tbody.removeChild(tbody.children[0]);
+        }
+    </script>
+</body>
+
+</html>
