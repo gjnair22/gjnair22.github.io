@@ -244,7 +244,7 @@ footer a{color:var(--accent)}
 
   <!-- STATS -->
   <div class="stats">
-    <div class="stat-card"><div class="num">5</div><div class="lbl">Projects built</div></div>
+    <div class="stat-card"><div class="num">8</div><div class="lbl">Projects built</div></div>
     <div class="stat-card"><div class="num">86.51%</div><div class="lbl">M.Sc. aggregate</div></div>
     <div class="stat-card"><div class="num">2</div><div class="lbl">Certifications</div></div>
     <div class="stat-card"><div class="num">5</div><div class="lbl">Languages spoken</div></div>
@@ -254,6 +254,49 @@ footer a{color:var(--accent)}
   <div class="section" id="projects">
     <div class="section-title">Projects</div>
     <div class="projects-grid">
+
+
+      <!-- E-Commerce Analytics using Python-->
+      <div class="pcard">
+        <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+          <img src="E-Com Dash.png" alt="E-Commerce Dashboard"/>
+          <span class="expand-hint">&#128247; Click to expand</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top">
+            <span class="pcard-tag">PYTHON · 2025</span>
+          </div>
+          <h3>E-Commerce Analytics using Python</h3>
+          <p>Exploratory Data Analysis using Pandas, NumPy, and Matplotlib. Analyzed customer behaviors, seasonal revenue peaks, payment types, and geographical delivery delays.</p>
+          <div class="tool-row">
+            <span class="tool"> Python </span><span class="tool">Data Cleaning </span><span class="tool">NumPy </span><span class="tool">Matplotlib </span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://github.com/gjnair22/E-Commerce-Analytics-using-Python.git" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+
+<!-- E-Commerce Analytics using SQL  -->
+      <div class="pcard">
+        <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+          <img src="Q6.png" alt="E-Commerce SQL"/>
+          <span class="expand-hint">&#128247; Click to expand</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top">
+            <span class="pcard-tag">SQL · 2025</span>
+          </div>
+          <h3>E-Commerce Analytics using SQL</h3>
+          <p>Designed queries involving multi-table Joins, Common Table Expressions (CTEs), and Window Functions (`RANK`, `LAG`, `LEAD`) to extract action-oriented business KPIs.</p>
+          <div class="tool-row">
+            <span class="tool"> Python </span><span class="tool">Data Cleaning </span><span class="tool">NumPy </span><span class="tool">Matplotlib </span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://github.com/gjnair22/E-Commerce-Analytics-using-Python.git" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
 
       <!-- Supply Chain -->
       <div class="pcard">
@@ -287,6 +330,38 @@ footer a{color:var(--accent)}
         </div>
       </div>
 
+<!-- Supply Chain -->
+      <div class="pcard">
+        <div class="screenshot carousel" id="carousel-supplychain"
+             onclick="openLightbox('lb-supplychain')">
+          <div class="carousel-track">
+            <img src="Top 5.png" alt="Supply Chain Query"/>
+          </div>
+          <button class="carousel-btn prev" onclick="event.stopPropagation();moveCarousel('carousel-supplychain',-1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="event.stopPropagation();moveCarousel('carousel-supplychain',1)">&#10095;</button>
+          <div class="carousel-dots">
+            <span class="dot active" onclick="event.stopPropagation();setSlide('carousel-supplychain',0)"></span>
+            <span class="dot" onclick="event.stopPropagation();setSlide('carousel-supplychain',1)"></span>
+          </div>
+          <span class="expand-hint">&#128247; Click to expand</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top">
+            <div class="pcard-icon bi">📦</div>
+            <span class="pcard-tag">SQL  · 2026</span>
+          </div>
+          <h3>Supply Chain Analytics Query</h3>
+          <p>Aggregated metrics using MySQL to dissect delivery logistics, transportation costs, and defect rates. Flagged under-performing suppliers and localized delays.</p>
+          <div class="tool-row">
+            <span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power Query</span><span class="tool">Business Intelligence</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://github.com/gjnair22/Supply-Chain-Analytics-Dashboard-using-Power-BI" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+
+      
       <!-- HR Analytics -->
       <div class="pcard">
         <div class="screenshot carousel" id="carousel-hr"
