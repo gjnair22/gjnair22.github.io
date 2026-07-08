@@ -111,6 +111,9 @@ nav[data-theme="dark"]{background:rgba(15, 23, 42, 0.85);}
 /* click-to-expand hint */
 .expand-hint{position:absolute;bottom:12px;right:12px;background:rgba(31,56,100,0.85);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;opacity:0;transition:var(--transition);pointer-events:none;letter-spacing:.04em;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
 .screenshot:hover .expand-hint{opacity:1}
+/* Small always-visible button overlaid on interactive widget previews, opens the real screenshot in a lightbox */
+.screenshot-view-btn{position:absolute;top:10px;right:10px;background:rgba(31,56,100,0.85);color:#fff;font-size:11px;font-weight:600;padding:5px 12px;border-radius:100px;border:none;cursor:pointer;letter-spacing:.02em;box-shadow:0 2px 6px rgba(0,0,0,0.2);transition:var(--transition);z-index:5;}
+.screenshot-view-btn:hover{background:var(--accent);transform:translateY(-1px);}
 .carousel-track{display:flex;transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1);width:100%;height:100%}
 .carousel-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(31,56,100,.8);backdrop-filter:blur(4px);color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0;transition:var(--transition);z-index:10}
@@ -343,7 +346,7 @@ footer a:hover{color:var(--navy);}
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
-    <div class="nav-logo">GJN<span></span></div>
+    <div class="nav-logo">GJN<span>.dev</span></div>
     <div class="nav-controls">
       <div class="nav-links">
         <a href="#projects">Projects</a>
@@ -489,18 +492,13 @@ footer a:hover{color:var(--navy);}
       <!-- PROJECT 4: E-Commerce Analytics (Python - NEW) -->
       <div class="pcard" data-category="python">
         <!-- ============================================================
-             IMAGE NEEDED: Screenshot for "E-Commerce Analytics using Python"
-             Replace the src below with your actual image filename/path
-             (e.g. a screenshot of your Matplotlib/Seaborn charts, exported
-             from your Jupyter Notebook). Suggested filename: "ecommerce-python-eda.png"
+             IMAGE ADDED: "E-Com Dash.png" — Olist Analytics EDA dashboard
+             Clicking "View Screenshot" opens the lightbox below (id="lb-ecom-python").
+             That lightbox's <img> src (search for lb-ecom-python-track) also
+             points to "E-Com Dash.png" — keep both in sync if you swap the file.
              ============================================================ -->
-        <div class="screenshot" onclick="openLightbox('lb-ecom-python')">
-          <img src="E-Com Dash.png" alt="E-Commerce Analytics using Python — EDA charts"
-            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
-          <span class="expand-hint">📸 Click to expand</span>
-        </div>
-        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
-        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:170px;border-bottom:1px solid var(--border)">
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:190px;border-bottom:1px solid var(--border);position:relative">
+          <button class="screenshot-view-btn" onclick="event.stopPropagation();openLightbox('lb-ecom-python')">📸 View Screenshot</button>
           <div class="pychart-widget">
             <div class="pychart-header">
               <span class="pychart-title">📈 E-Commerce Viz Simulator</span>
@@ -536,18 +534,13 @@ footer a:hover{color:var(--navy);}
       <!-- PROJECT 5: E-Commerce Sales Analytics (SQL - NEW) -->
       <div class="pcard" data-category="sql">
         <!-- ============================================================
-             IMAGE NEEDED: Screenshot for "E-Commerce Sales Analytics using SQL"
-             Replace the src below with your actual image filename/path
-             (e.g. a screenshot of a query result set or an ER diagram).
-             Suggested filename: "ecommerce-sql-console.png"
+             IMAGE ADDED: "Q6.png" — MySQL Workbench result grid (payment_type totals)
+             Clicking "View Screenshot" opens the lightbox below (id="lb-ecom-sql").
+             That lightbox's <img> src (search for lb-ecom-sql-track) also
+             points to "Q6.png" — keep both in sync if you swap the file.
              ============================================================ -->
-        <div class="screenshot" onclick="openLightbox('lb-ecom-sql')">
-          <img src="Q6.png" alt="E-Commerce Sales Analytics using SQL — query results"
-            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
-          <span class="expand-hint">📸 Click to expand</span>
-        </div>
-        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
-        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:190px;border-bottom:1px solid var(--border)">
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:210px;border-bottom:1px solid var(--border);position:relative">
+          <button class="screenshot-view-btn" onclick="event.stopPropagation();openLightbox('lb-ecom-sql')">📸 View Screenshot</button>
           <div class="sql-widget">
             <div class="sql-header">
               <span class="sql-title">⚡ Interactive SQL Console</span>
@@ -599,18 +592,13 @@ footer a:hover{color:var(--navy);}
       <!-- PROJECT 6: Supply Chain Analytics (SQL - NEW) -->
       <div class="pcard" data-category="sql">
         <!-- ============================================================
-             IMAGE NEEDED: Screenshot for "Supply Chain Analytics using SQL"
-             Replace the src below with your actual image filename/path
-             (e.g. a screenshot of query output or schema diagram).
-             Suggested filename: "supplychain-sql-monitor.png"
+             IMAGE ADDED: "Top 5.png" — MySQL Workbench result grid (top SKUs by revenue)
+             Clicking "View Screenshot" opens the lightbox below (id="lb-sc-sql").
+             That lightbox's <img> src (search for lb-sc-sql-track) also
+             points to "Top 5.png" — keep both in sync if you swap the file.
              ============================================================ -->
-        <div class="screenshot" onclick="openLightbox('lb-sc-sql')">
-          <img src="Top 5.png" alt="Supply Chain Analytics using SQL — metrics monitor"
-            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
-          <span class="expand-hint">📸 Click to expand</span>
-        </div>
-        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
-        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:210px;border-bottom:1px solid var(--border)">
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:230px;border-bottom:1px solid var(--border);position:relative">
+          <button class="screenshot-view-btn" onclick="event.stopPropagation();openLightbox('lb-sc-sql')">📸 View Screenshot</button>
           <div class="scmon-widget">
             <div class="scmon-header">
               <span class="scmon-title">⛓ Supply Chain Metrics Monitor</span>
@@ -663,17 +651,14 @@ footer a:hover{color:var(--navy);}
       <div class="pcard" data-category="python">
         <!-- ============================================================
              IMAGE NEEDED: Screenshot for "Heart Disease Detection & Explainable AI"
-             Replace the src below with your actual image filename/path
-             (e.g. a SHAP summary plot or force plot exported from your notebook).
+             This card shows a live interactive widget by default. Clicking
+             "View Screenshot" opens the lightbox below (id="lb-xai") —
+             put your real image filename/path in THAT lightbox's <img> src
+             (search for lb-xai-track further down this file).
              Suggested filename: "heart-disease-shap.png"
              ============================================================ -->
-        <div class="screenshot" onclick="openLightbox('lb-xai')">
-          <img src="heart-disease-shap.png" alt="Heart Disease Detection & Explainable AI — SHAP plot"
-            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
-          <span class="expand-hint">📸 Click to expand</span>
-        </div>
-        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
-        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:230px;border-bottom:1px solid var(--border)">
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:250px;border-bottom:1px solid var(--border);position:relative">
+          <button class="screenshot-view-btn" onclick="event.stopPropagation();openLightbox('lb-xai')">📸 View Screenshot</button>
           <div class="xai-widget">
             <div class="xai-header">
               <span class="xai-title">🧠 SHAP Interactive Explainer</span>
@@ -759,17 +744,14 @@ footer a:hover{color:var(--navy);}
       <div class="pcard" data-category="sql">
         <!-- ============================================================
              IMAGE NEEDED: Screenshot for "Pet Grooming Booking Platform"
-             Replace the src below with your actual image filename/path
-             (e.g. a screenshot of the admin dashboard or booking form UI).
+             This card shows a live interactive widget by default. Clicking
+             "View Screenshot" opens the lightbox below (id="lb-pet") —
+             put your real image filename/path in THAT lightbox's <img> src
+             (search for lb-pet-track further down this file).
              Suggested filename: "pet-grooming-platform.png"
              ============================================================ -->
-        <div class="screenshot" onclick="openLightbox('lb-pet')">
-          <img src="pet-grooming-platform.png" alt="Pet Grooming Booking Platform — admin dashboard"
-            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
-          <span class="expand-hint">📸 Click to expand</span>
-        </div>
-        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
-        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:200px;border-bottom:1px solid var(--border)">
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:220px;border-bottom:1px solid var(--border);position:relative">
+          <button class="screenshot-view-btn" onclick="event.stopPropagation();openLightbox('lb-pet')">📸 View Screenshot</button>
           <div class="pet-widget">
             <div class="pet-header">
               <span class="pet-title">🗄 Relational Booking Simulator</span>
@@ -974,8 +956,8 @@ footer a:hover{color:var(--navy);}
   </div>
   <div class="lb-img-wrap">
     <div class="lb-track" id="lb-ecom-python-track">
-      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
-      <img src="ecommerce-python-eda.png" alt="E-Commerce Analytics using Python — full view"/>
+      <!-- IMAGE ADDED: "E-Com Dash.png" (opens when "View Screenshot" is clicked on the card) -->
+      <img src="E-Com Dash.png" alt="E-Commerce Analytics using Python — full view"/>
     </div>
   </div>
 </div>
@@ -987,8 +969,8 @@ footer a:hover{color:var(--navy);}
   </div>
   <div class="lb-img-wrap">
     <div class="lb-track" id="lb-ecom-sql-track">
-      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
-      <img src="ecommerce-sql-console.png" alt="E-Commerce Sales Analytics using SQL — full view"/>
+      <!-- IMAGE ADDED: "Q6.png" (opens when "View Screenshot" is clicked on the card) -->
+      <img src="Q6.png" alt="E-Commerce Sales Analytics using SQL — full view"/>
     </div>
   </div>
 </div>
@@ -1000,8 +982,8 @@ footer a:hover{color:var(--navy);}
   </div>
   <div class="lb-img-wrap">
     <div class="lb-track" id="lb-sc-sql-track">
-      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
-      <img src="supplychain-sql-monitor.png" alt="Supply Chain Analytics using SQL — full view"/>
+      <!-- IMAGE ADDED: "Top 5.png" (opens when "View Screenshot" is clicked on the card) -->
+      <img src="Top 5.png" alt="Supply Chain Analytics using SQL — full view"/>
     </div>
   </div>
 </div>
@@ -1013,7 +995,7 @@ footer a:hover{color:var(--navy);}
   </div>
   <div class="lb-img-wrap">
     <div class="lb-track" id="lb-xai-track">
-      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <!-- IMAGE NEEDED: put your actual screenshot filename/path in this <img> src (this is what opens when "View Screenshot" is clicked on the card) -->
       <img src="heart-disease-shap.png" alt="Heart Disease Detection & Explainable AI — full view"/>
     </div>
   </div>
@@ -1026,7 +1008,7 @@ footer a:hover{color:var(--navy);}
   </div>
   <div class="lb-img-wrap">
     <div class="lb-track" id="lb-pet-track">
-      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <!-- IMAGE NEEDED: put your actual screenshot filename/path in this <img> src (this is what opens when "View Screenshot" is clicked on the card) -->
       <img src="pet-grooming-platform.png" alt="Pet Grooming Booking Platform — full view"/>
     </div>
   </div>
