@@ -343,7 +343,7 @@ footer a:hover{color:var(--navy);}
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
-    <div class="nav-logo">GJN</div>
+    <div class="nav-logo">GJN<span></span></div>
     <div class="nav-controls">
       <div class="nav-links">
         <a href="#projects">Projects</a>
@@ -488,9 +488,28 @@ footer a:hover{color:var(--navy);}
       </div>
       <!-- PROJECT 4: E-Commerce Analytics (Python - NEW) -->
       <div class="pcard" data-category="python">
-        <div class="screenshot">
-          <img src="E-Com Dash.png" alt="E-Commerce Analytics using Python" class="project-image">
+        <!-- ============================================================
+             IMAGE NEEDED: Screenshot for "E-Commerce Analytics using Python"
+             Replace the src below with your actual image filename/path
+             (e.g. a screenshot of your Matplotlib/Seaborn charts, exported
+             from your Jupyter Notebook). Suggested filename: "ecommerce-python-eda.png"
+             ============================================================ -->
+        <div class="screenshot" onclick="openLightbox('lb-ecom-python')">
+          <img src="E-Com Dash.png" alt="E-Commerce Analytics using Python — EDA charts"
+            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
+          <span class="expand-hint">📸 Click to expand</span>
         </div>
+        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:170px;border-bottom:1px solid var(--border)">
+          <div class="pychart-widget">
+            <div class="pychart-header">
+              <span class="pychart-title">📈 E-Commerce Viz Simulator</span>
+              <div class="pychart-tabs">
+                <button class="pychart-tab-btn active" id="py-tab-sales" onclick="switchPyTab('sales')">Sales Trend</button>
+                <button class="pychart-tab-btn" id="py-tab-pay" onclick="switchPyTab('pay')">Payments</button>
+                <button class="pychart-tab-btn" id="py-tab-del" onclick="switchPyTab('del')">Delivery</button>
+              </div>
+            </div>
             <div class="pychart-content">
               <div class="pychart-vis-area" id="py-chart-area">
                 <!-- Dyn chart columns will render here -->
@@ -516,10 +535,30 @@ footer a:hover{color:var(--navy);}
       </div>
       <!-- PROJECT 5: E-Commerce Sales Analytics (SQL - NEW) -->
       <div class="pcard" data-category="sql">
-        <div class="screenshot">
-          <img src="Q6.png"
-         alt="E-Commerce Sales Analytics using SQL"
-         class="project-image"></div>
+        <!-- ============================================================
+             IMAGE NEEDED: Screenshot for "E-Commerce Sales Analytics using SQL"
+             Replace the src below with your actual image filename/path
+             (e.g. a screenshot of a query result set or an ER diagram).
+             Suggested filename: "ecommerce-sql-console.png"
+             ============================================================ -->
+        <div class="screenshot" onclick="openLightbox('lb-ecom-sql')">
+          <img src="Q6.png" alt="E-Commerce Sales Analytics using SQL — query results"
+            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
+          <span class="expand-hint">📸 Click to expand</span>
+        </div>
+        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:190px;border-bottom:1px solid var(--border)">
+          <div class="sql-widget">
+            <div class="sql-header">
+              <span class="sql-title">⚡ Interactive SQL Console</span>
+              <div class="sql-select-wrapper">
+                <select class="sql-select" id="sql-query-select" onchange="loadSqlQuery()">
+                  <option value="customer_rfm">RFM Value Segments</option>
+                  <option value="growth_mom">YoY Sales Growth (Window)</option>
+                  <option value="top_cat">Product Categories (Joins)</option>
+                </select>
+              </div>
+            </div>
             <div class="sql-main">
               <div class="sql-code-panel">
                 <div class="sql-code" id="sql-code-display">-- SELECT QUERY</div>
@@ -559,7 +598,19 @@ footer a:hover{color:var(--navy);}
       </div>
       <!-- PROJECT 6: Supply Chain Analytics (SQL - NEW) -->
       <div class="pcard" data-category="sql">
-        <div class="screenshot" style="cursor:default">
+        <!-- ============================================================
+             IMAGE NEEDED: Screenshot for "Supply Chain Analytics using SQL"
+             Replace the src below with your actual image filename/path
+             (e.g. a screenshot of query output or schema diagram).
+             Suggested filename: "supplychain-sql-monitor.png"
+             ============================================================ -->
+        <div class="screenshot" onclick="openLightbox('lb-sc-sql')">
+          <img src="Top 5.png" alt="Supply Chain Analytics using SQL — metrics monitor"
+            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
+          <span class="expand-hint">📸 Click to expand</span>
+        </div>
+        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:210px;border-bottom:1px solid var(--border)">
           <div class="scmon-widget">
             <div class="scmon-header">
               <span class="scmon-title">⛓ Supply Chain Metrics Monitor</span>
@@ -610,7 +661,19 @@ footer a:hover{color:var(--navy);}
       </div>
       <!-- PROJECT 7: Explainable AI (Python) -->
       <div class="pcard" data-category="python">
-        <div class="screenshot" style="cursor:default">
+        <!-- ============================================================
+             IMAGE NEEDED: Screenshot for "Heart Disease Detection & Explainable AI"
+             Replace the src below with your actual image filename/path
+             (e.g. a SHAP summary plot or force plot exported from your notebook).
+             Suggested filename: "heart-disease-shap.png"
+             ============================================================ -->
+        <div class="screenshot" onclick="openLightbox('lb-xai')">
+          <img src="heart-disease-shap.png" alt="Heart Disease Detection & Explainable AI — SHAP plot"
+            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
+          <span class="expand-hint">📸 Click to expand</span>
+        </div>
+        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:230px;border-bottom:1px solid var(--border)">
           <div class="xai-widget">
             <div class="xai-header">
               <span class="xai-title">🧠 SHAP Interactive Explainer</span>
@@ -694,7 +757,19 @@ footer a:hover{color:var(--navy);}
       </div>
       <!-- PROJECT 8: Pet Grooming Relational (SQL) -->
       <div class="pcard" data-category="sql">
-        <div class="screenshot" style="cursor:default">
+        <!-- ============================================================
+             IMAGE NEEDED: Screenshot for "Pet Grooming Booking Platform"
+             Replace the src below with your actual image filename/path
+             (e.g. a screenshot of the admin dashboard or booking form UI).
+             Suggested filename: "pet-grooming-platform.png"
+             ============================================================ -->
+        <div class="screenshot" onclick="openLightbox('lb-pet')">
+          <img src="pet-grooming-platform.png" alt="Pet Grooming Booking Platform — admin dashboard"
+            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'"/>
+          <span class="expand-hint">📸 Click to expand</span>
+        </div>
+        <!-- Interactive live-demo widget kept as a secondary preview below the image -->
+        <div class="screenshot" style="cursor:default;aspect-ratio:auto;height:200px;border-bottom:1px solid var(--border)">
           <div class="pet-widget">
             <div class="pet-header">
               <span class="pet-title">🗄 Relational Booking Simulator</span>
@@ -888,6 +963,71 @@ footer a:hover{color:var(--navy);}
   <div class="lb-img-wrap">
     <div class="lb-track" id="lb-superstore-track">
       <img src="superstore.png" alt="Superstore Dashboard"/>
+    </div>
+  </div>
+</div>
+<!-- E-Commerce Python Lightbox (NEW) -->
+<div id="lb-ecom-python" class="lb-inner" style="display:none">
+  <div class="lb-header">
+    <span class="lb-title">🐍 E-Commerce Analytics using Python</span>
+    <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+  </div>
+  <div class="lb-img-wrap">
+    <div class="lb-track" id="lb-ecom-python-track">
+      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <img src="ecommerce-python-eda.png" alt="E-Commerce Analytics using Python — full view"/>
+    </div>
+  </div>
+</div>
+<!-- E-Commerce SQL Lightbox (NEW) -->
+<div id="lb-ecom-sql" class="lb-inner" style="display:none">
+  <div class="lb-header">
+    <span class="lb-title">🗄 E-Commerce Sales Analytics using SQL</span>
+    <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+  </div>
+  <div class="lb-img-wrap">
+    <div class="lb-track" id="lb-ecom-sql-track">
+      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <img src="ecommerce-sql-console.png" alt="E-Commerce Sales Analytics using SQL — full view"/>
+    </div>
+  </div>
+</div>
+<!-- Supply Chain SQL Lightbox (NEW) -->
+<div id="lb-sc-sql" class="lb-inner" style="display:none">
+  <div class="lb-header">
+    <span class="lb-title">⛓ Supply Chain Analytics using SQL</span>
+    <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+  </div>
+  <div class="lb-img-wrap">
+    <div class="lb-track" id="lb-sc-sql-track">
+      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <img src="supplychain-sql-monitor.png" alt="Supply Chain Analytics using SQL — full view"/>
+    </div>
+  </div>
+</div>
+<!-- Explainable AI Lightbox (NEW) -->
+<div id="lb-xai" class="lb-inner" style="display:none">
+  <div class="lb-header">
+    <span class="lb-title">🧠 Heart Disease Detection &amp; Explainable AI</span>
+    <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+  </div>
+  <div class="lb-img-wrap">
+    <div class="lb-track" id="lb-xai-track">
+      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <img src="heart-disease-shap.png" alt="Heart Disease Detection & Explainable AI — full view"/>
+    </div>
+  </div>
+</div>
+<!-- Pet Grooming Lightbox (NEW) -->
+<div id="lb-pet" class="lb-inner" style="display:none">
+  <div class="lb-header">
+    <span class="lb-title">🐾 Pet Grooming Booking Platform</span>
+    <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+  </div>
+  <div class="lb-img-wrap">
+    <div class="lb-track" id="lb-pet-track">
+      <!-- IMAGE NEEDED: same file as the card screenshot above, or a larger/alternate version -->
+      <img src="pet-grooming-platform.png" alt="Pet Grooming Booking Platform — full view"/>
     </div>
   </div>
 </div>
