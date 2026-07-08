@@ -1,219 +1,362 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Gowri J Nair — Data Analyst Portfolio</title>
+<!-- Modern typography: Outfit for headers, Inter for text, JetBrains Mono for code -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1F3864;--accent:#2E74B5;--accent-light:#E6F1FB;--accent-mid:#B5D4F4;
-  --text:#1a1a1a;--muted:#5a5a5a;--border:#e2e2e2;--bg:#ffffff;--bg2:#f7f8fa;--bg3:#f0f2f5;
-  --radius:12px;--radius-lg:16px;
+  --navy:#1F3864;
+  --accent:#2E74B5;
+  --accent-light:#E6F1FB;
+  --accent-mid:#B5D4F4;
+  --text:#1e293b;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --bg:#ffffff;
+  --bg2:#f8fafc;
+  --bg3:#f1f5f9;
+  --radius:12px;
+  --radius-lg:16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(30,56,100,0.08), 0 4px 6px -2px rgba(30,56,100,0.03);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --glow-accent: rgba(46, 116, 181, 0.08);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--bg3);font-size:16px;line-height:1.65}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-
+[data-theme="dark"]{
+  --navy:#e2e8f0;
+  --accent:#479beb;
+  --accent-light:#162a45;
+  --accent-mid:#254d75;
+  --text:#cbd5e1;
+  --muted:#94a3b8;
+  --border:#334155;
+  --bg:#0f172a;
+  --bg2:#1e293b;
+  --bg3:#020617;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+  --glow-accent: rgba(71, 155, 235, 0.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;transition: background-color 0.3s var(--transition), border-color 0.3s var(--transition);}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg3);font-size:15px;line-height:1.6;scroll-behavior: smooth;}
+h1, h2, h3, h4, .nav-logo, .section-title, .num{font-family:'Outfit', sans-serif;}
+a{color:var(--accent);text-decoration:none;transition: var(--transition);}
+a:hover{color:var(--accent-mid);text-decoration:none}
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1100px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
-.nav-logo{font-weight:700;color:var(--navy);font-size:18px;letter-spacing:-.01em}
+nav{position:sticky;top:0;z-index:200;background:rgba(var(--bg), 0.85);backdrop-filter: blur(12px);-webkit-backdrop-filter: blur(12px);border-bottom:1px solid var(--border);transition: var(--transition);}
+nav[data-theme="dark"]{background:rgba(15, 23, 42, 0.85);}
+.nav-inner{max-width:1150px;margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
+.nav-logo{font-weight:800;color:var(--accent);font-size:22px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--navy);}
+.nav-controls{display:flex;align-items:center;gap:1.5rem;}
 .nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:15px;color:var(--muted);font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--accent);text-decoration:none}
-
+.nav-links a{font-size:14px;color:var(--muted);font-weight:600;position:relative;padding:4px 0;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:var(--transition);}
+.nav-links a:hover{color:var(--accent);text-decoration:none;}
+.nav-links a:hover::after{width:100%;}
+/* Theme Toggle */
+.theme-toggle{background:var(--bg2);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);font-size:18px;transition:var(--transition);outline:none;}
+.theme-toggle:hover{background:var(--accent-light);border-color:var(--accent-mid);transform:scale(1.05);box-shadow: 0 0 10px var(--glow-accent);}
 /* ── PAGE WRAPPER ── */
-.page{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
-
+.page{max-width:1150px;margin:0 auto;padding:2.5rem 2rem 5rem}
 /* ── HERO ── */
-.hero{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:3rem 2.5rem;display:flex;align-items:center;gap:2.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.avatar-wrap{flex-shrink:0}
-.avatar{width:120px;height:120px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:var(--accent);border:3px solid var(--accent-mid);object-fit:cover;overflow:hidden}
-.hero-text{flex:1;min-width:260px}
-.hero-text h1{font-size:38px;font-weight:800;color:var(--navy);margin-bottom:6px;letter-spacing:-.02em}
-.hero-text .subtitle{font-size:17px;color:var(--muted);margin-bottom:1.25rem;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.relocate-tag{display:inline-flex;align-items:center;gap:5px;font-size:13px;padding:4px 13px;border-radius:100px;background:#EAF3DE;border:1px solid #C0DD97;color:#3B6D11;font-weight:500}
-.contact-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:1.25rem}
-.contact-row a{font-size:14px;color:var(--accent);display:flex;align-items:center;gap:6px;padding:7px 16px;border:1px solid var(--accent-mid);border-radius:100px;background:var(--accent-light);font-weight:500;transition:background .2s}
-.contact-row a:hover{background:var(--accent-mid);text-decoration:none}
+.hero{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:3.5rem 3rem;display:flex;align-items:center;gap:3rem;margin-bottom:2rem;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;flex-wrap:wrap;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle, var(--glow-accent) 0%, transparent 70%);pointer-events:none;}
+.avatar-wrap{flex-shrink:0;position:relative;}
+.avatar{width:140px;height:140px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:800;color:var(--accent);border:4px solid var(--accent-mid);object-fit:cover;overflow:hidden;box-shadow:var(--shadow-md);transition:var(--transition);}
+.hero:hover .avatar{transform:scale(1.03) rotate(3deg);box-shadow:0 0 20px var(--glow-accent);}
+.hero-text{flex:1;min-width:280px}
+.hero-text h1{font-size:42px;font-weight:800;color:var(--navy);margin-bottom:8px;letter-spacing:-.03em;line-height:1.15;}
+.hero-text .subtitle{font-size:18px;color:var(--muted);margin-bottom:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-weight:500;}
+.relocate-tag{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:5px 14px;border-radius:100px;background:#eaf6db;border:1px solid #c8e79e;color:#2c5905;font-weight:600;}
+[data-theme="dark"] .relocate-tag{background:#1e2d14;border-color:#355418;color:#a3db74;}
+.contact-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem}
+.contact-row a{font-size:13.5px;color:var(--text);display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid var(--border);border-radius:100px;background:var(--bg2);font-weight:600;box-shadow:var(--shadow-sm);transition:var(--transition);}
+.contact-row a:hover{background:var(--accent-light);border-color:var(--accent-mid);color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px var(--glow-accent);text-decoration:none}
 .badge-row{display:flex;flex-wrap:wrap;gap:8px}
-.badge{font-size:13px;padding:5px 14px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);font-weight:500}
-.badge.hi{background:var(--accent-light);border-color:var(--accent-mid);color:var(--accent);font-weight:600}
-
+.badge{font-size:13px;padding:6px 14px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);font-weight:600;box-shadow:var(--shadow-sm);}
+.badge.hi{background:var(--accent-light);border-color:var(--accent-mid);color:var(--accent);font-weight:700}
 /* ── STATS ── */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
-.stat-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1rem;text-align:center}
-.stat-card .num{font-size:30px;font-weight:800;color:var(--navy)}
-.stat-card .lbl{font-size:13px;color:var(--muted);margin-top:4px}
-
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2.5rem}
+.stat-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.25rem;text-align:center;box-shadow:var(--shadow-md);transition:var(--transition);position:relative;}
+.stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-mid);}
+.stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent);border-radius:0 0 var(--radius) var(--radius);transform:scaleX(0);transition:var(--transition);}
+.stat-card:hover::after{transform:scaleX(1);}
+.stat-card .num{font-size:32px;font-weight:800;color:var(--navy);margin-bottom:4px;line-height:1;}
+.stat-card .lbl{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}
+/* ── PROJECT FILTERS ── */
+.filter-bar{display:flex;justify-content:center;gap:8px;margin-bottom:2rem;flex-wrap:wrap;}
+.filter-btn{font-family:'Outfit', sans-serif;font-size:13.5px;font-weight:600;padding:8px 20px;border-radius:100px;border:1px solid var(--border);background:var(--bg);color:var(--muted);cursor:pointer;transition:var(--transition);box-shadow:var(--shadow-sm);}
+.filter-btn:hover{background:var(--bg2);color:var(--text);transform:translateY(-1px);}
+.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 12px rgba(46, 116, 181, 0.25);}
 /* ── SECTION ── */
-.section{margin-bottom:2.5rem}
-.section-title{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;display:flex;align-items:center;gap:12px}
-.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-
+.section{margin-bottom:3.5rem}
+.section-title{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:16px}
+.section-title::after{content:'';flex:1;height:2px;background:var(--border)}
 /* ── PROJECT CARDS ── */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
-.pcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,border-color .25s}
-.pcard:hover{box-shadow:0 6px 28px rgba(30,56,100,.1);border-color:var(--accent-mid)}
-
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem}
+.pcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-md);transition:var(--transition);opacity:1;}
+.pcard:hover{box-shadow:var(--shadow-lg);border-color:var(--accent-mid);transform:translateY(-4px);}
 /* ── SCREENSHOT / CAROUSEL ── */
 .screenshot{width:100%;aspect-ratio:16/9;background:var(--bg2);border-bottom:1px solid var(--border);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer}
-.screenshot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.screenshot:hover img{transform:scale(1.03)}
-
+.screenshot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--transition)}
+.screenshot:hover img{transform:scale(1.04)}
 /* click-to-expand hint */
-.expand-hint{position:absolute;bottom:10px;right:10px;background:rgba(31,56,100,.75);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;opacity:0;transition:opacity .25s;pointer-events:none;letter-spacing:.02em}
+.expand-hint{position:absolute;bottom:12px;right:12px;background:rgba(31,56,100,0.85);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;opacity:0;transition:var(--transition);pointer-events:none;letter-spacing:.04em;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
 .screenshot:hover .expand-hint{opacity:1}
-
-.carousel-track{display:flex;transition:transform .4s ease-in-out;width:100%;height:100%}
+.carousel-track{display:flex;transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1);width:100%;height:100%}
 .carousel-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(31,56,100,.72);color:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;opacity:0;transition:opacity .2s,background .2s;z-index:10}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(31,56,100,.8);backdrop-filter:blur(4px);color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0;transition:var(--transition);z-index:10}
 .screenshot:hover .carousel-btn{opacity:1}
-.carousel-btn:hover{background:rgba(31,56,100,.92)}
-.carousel-btn.prev{left:10px}
-.carousel-btn.next{right:10px}
-.carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10}
-.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .2s,width .2s}
+.carousel-btn:hover{background:var(--accent);transform:translateY(-50%) scale(1.1);}
+.carousel-btn.prev{left:12px}
+.carousel-btn.next{right:12px}
+.carousel-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:var(--transition)}
 .dot:hover{background:rgba(255,255,255,.8)}
 .dot.active{background:#fff;width:20px;border-radius:4px}
-
 /* ── CARD BODY ── */
-.pcard-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;gap:12px}
-.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.pcard-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
-.pcard-icon.bi{background:var(--accent-light)}
-.pcard-icon.ml{background:#EAF3DE}
-.pcard-icon.db{background:#FAEEDA}
-.pcard-tag{font-size:12px;padding:4px 11px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);white-space:nowrap;font-weight:500}
-.pcard-body h3{font-size:18px;font-weight:700;color:var(--navy);line-height:1.35}
-.pcard-body p{font-size:15px;color:var(--muted);line-height:1.65;flex:1}
-.tool-row{display:flex;flex-wrap:wrap;gap:6px}
-.tool{font-size:12px;padding:3px 11px;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:var(--bg2);font-weight:500}
-.pcard-footer{border-top:1px solid var(--border);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
-.pcard-footer a{font-size:14px;color:var(--accent);display:flex;align-items:center;gap:5px;font-weight:500}
-.pcard-footer a:hover{text-decoration:underline}
-.no-link{font-size:13px;color:var(--muted);font-style:italic}
-
+.pcard-body{padding:1.75rem;flex:1;display:flex;flex-direction:column;gap:14px}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pcard-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;box-shadow:var(--shadow-sm);}
+.pcard-icon.bi{background:var(--accent-light);color:var(--accent);}
+.pcard-icon.ml{background:#EAF3DE;color:#3B6D11;}
+.pcard-icon.db{background:#FAEEDA;color:#854F0B;}
+[data-theme="dark"] .pcard-icon.ml{background:#1c2d0f;color:#a3db74;}
+[data-theme="dark"] .pcard-icon.db{background:#2a1f10;color:#fcd34d;}
+.pcard-tag{font-size:12px;padding:4px 12px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);white-space:nowrap;font-weight:600}
+.pcard-body h3{font-size:20px;font-weight:700;color:var(--navy);line-height:1.3;letter-spacing:-.01em;}
+.pcard-body p{font-size:14.5px;color:var(--muted);line-height:1.6;flex:1}
+.tool-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.tool{font-size:11.5px;padding:4px 12px;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:var(--bg2);font-weight:600}
+.pcard-footer{border-top:1px solid var(--border);padding:1.25rem 1.75rem;display:flex;align-items:center;justify-content:space-between;background:var(--bg2);}
+.pcard-footer a{font-size:13.5px;color:var(--accent);display:inline-flex;align-items:center;gap:6px;font-weight:700;transition:var(--transition);}
+.pcard-footer a:hover{color:var(--navy);transform:translateX(2px);}
+.no-link{font-size:13px;color:var(--muted);font-style:italic;font-weight:500;}
 /* ── LIGHTBOX ── */
-#lightbox{display:none;position:fixed;inset:0;background:rgba(10,15,30,.88);z-index:1000;align-items:center;justify-content:center;padding:1.5rem}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.92);backdrop-filter:blur(8px);z-index:1000;align-items:center;justify-content:center;padding:2rem}
 #lightbox.open{display:flex}
-.lb-inner{position:relative;max-width:1200px;width:100%;background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.5)}
-.lb-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--border);background:var(--bg)}
-.lb-title{font-size:16px;font-weight:700;color:var(--navy)}
-.lb-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--muted);line-height:1;padding:0 4px;transition:color .2s}
-.lb-close:hover{color:var(--navy)}
-.lb-img-wrap{position:relative;background:#000;display:flex;align-items:center;justify-content:center;min-height:300px}
-.lb-track{display:flex;transition:transform .4s ease-in-out;width:100%}
-.lb-track img{width:100%;flex-shrink:0;object-fit:contain;max-height:75vh}
-.lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(31,56,100,.8);color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10}
-.lb-btn:hover{background:rgba(31,56,100,1)}
-.lb-btn.prev{left:14px}
-.lb-btn.next{right:14px}
-.lb-dots{display:flex;justify-content:center;gap:8px;padding:.875rem 0;background:var(--bg)}
-.lb-dot{width:10px;height:10px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s,width .2s}
-.lb-dot.active{background:var(--accent);width:24px;border-radius:5px}
-
-/* ── XAI WIDGET ── */
-.xai-widget{width:100%;height:100%;background:#fdfdfd;display:flex;flex-direction:column;padding:14px 16px;box-sizing:border-box}
-.xai-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:10px}
-.xai-title{font-size:14px;font-weight:700;color:var(--navy)}
+.lb-inner{position:relative;max-width:1200px;width:100%;background:var(--bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);display:flex;flex-direction:column;}
+.lb-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.75rem;border-bottom:1px solid var(--border);background:var(--bg)}
+.lb-title{font-size:18px;font-weight:700;color:var(--navy)}
+.lb-close{background:none;border:none;font-size:28px;cursor:pointer;color:var(--muted);line-height:1;padding:4px;transition:var(--transition);display:flex;align-items:center;justify-content:center;}
+.lb-close:hover{color:var(--accent);transform:rotate(90deg);}
+.lb-img-wrap{position:relative;background:#000;display:flex;align-items:center;justify-content:center;min-height:350px;flex:1;}
+.lb-track{display:flex;transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1);width:100%}
+.lb-track img{width:100%;flex-shrink:0;object-fit:contain;max-height:70vh}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(31,56,100,.85);color:#fff;border:none;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:var(--transition);z-index:10}
+.lb-btn:hover{background:var(--accent);transform:translateY(-50%) scale(1.1);}
+.lb-btn.prev{left:20px}
+.lb-btn.next{right:20px}
+.lb-dots{display:flex;justify-content:center;gap:8px;padding:1rem 0;background:var(--bg);border-top:1px solid var(--border);}
+.lb-dot{width:10px;height:10px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--transition)}
+.lb-dot.active{background:var(--accent);width:26px;border-radius:5px}
+/* ── XAI WIDGET (INTERACTIVE UPGRADES) ── */
+.xai-widget{width:100%;height:100%;background:var(--bg2);display:flex;flex-direction:column;padding:16px;box-sizing:border-box}
+.xai-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:12px}
+.xai-title{font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;}
 .xai-tabs{display:flex;gap:4px}
-.xai-tab-btn{font-size:11px;padding:3px 9px;border-radius:100px;border:1px solid var(--border);background:var(--bg2);cursor:pointer;color:var(--muted);font-weight:600;transition:all .2s}
+.xai-tab-btn{font-family:'Outfit', sans-serif;font-size:11px;padding:4px 10px;border-radius:100px;border:1px solid var(--border);background:var(--bg);cursor:pointer;color:var(--muted);font-weight:600;transition:var(--transition)}
 .xai-tab-btn.active{background:#EAF3DE;border-color:#C0DD97;color:#3B6D11}
-.xai-content{flex:1;display:flex;flex-direction:column;justify-content:center}
-.xai-bar-chart{display:flex;flex-direction:column;gap:8px}
-.xai-bar-row{display:flex;align-items:center;gap:10px;cursor:help}
-.xai-bar-label{width:90px;font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
-.xai-bar-container{flex:1;height:14px;background:var(--bg2);border-radius:5px;overflow:hidden;border:1px solid rgba(0,0,0,.05)}
-.xai-bar-fill{height:100%;background:#a3db74;border-radius:5px;transition:width .8s cubic-bezier(.4,0,.2,1),background-color .2s}
+[data-theme="dark"] .xai-tab-btn.active{background:#233a18;border-color:#3e6224;color:#a3db74;}
+.xai-content{flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;}
+/* Inputs for Interactive XAI */
+.xai-controls-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--border);margin-bottom:6px;}
+.xai-control-group{display:flex;flex-direction:column;gap:3px;}
+.xai-control-group label{font-weight:600;color:var(--muted);display:flex;justify-content:space-between;}
+.xai-control-group label span{color:var(--accent);font-weight:700;}
+.xai-slider{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--border);outline:none;accent-color:var(--accent);}
+.xai-select{padding:2px 4px;border-radius:4px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:11px;font-weight:600;outline:none;}
+.xai-bar-chart{display:flex;flex-direction:column;gap:6px}
+.xai-bar-row{display:flex;align-items:center;gap:8px;cursor:help;position:relative;}
+.xai-bar-label{width:75px;font-size:11.5px;color:var(--muted);text-align:right;white-space:nowrap;font-weight:600;}
+.xai-bar-container{flex:1;height:12px;background:var(--border);border-radius:5px;overflow:hidden;position:relative;}
+.xai-bar-fill{height:100%;background:#8ec06c;border-radius:5px;transition:width 0.4s ease-out, background-color 0.2s;}
 .xai-bar-row:hover .xai-bar-fill{background:#3B6D11}
-.xai-bar-val{width:36px;font-size:12px;font-weight:700;color:var(--navy)}
+.xai-bar-val{width:32px;font-size:11.5px;font-weight:700;color:var(--navy);text-align:right;}
 .shap-force-plot{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;height:100%}
-.shap-scale{width:100%;height:26px;display:flex;border-radius:5px;overflow:hidden;border:1px solid var(--border)}
-.shap-push-higher{background:#ffcdd2;flex:6;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#c62828;font-size:11px;font-weight:700;white-space:nowrap}
-.shap-push-lower{background:#bbdefb;flex:4;display:flex;align-items:center;justify-content:flex-start;padding-left:8px;color:#1565c0;font-size:11px;font-weight:700;white-space:nowrap}
-.shap-base-val{font-size:12px;color:var(--text);text-align:center}
-
+.shap-scale{width:100%;height:26px;display:flex;border-radius:6px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);}
+.shap-push-higher{background:#ffcdd2;flex:6;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#c62828;font-size:11px;font-weight:700;white-space:nowrap;transition:flex 0.4s var(--transition);}
+[data-theme="dark"] .shap-push-higher{background:#5c2528;color:#ff8a80;}
+.shap-push-lower{background:#bbdefb;flex:4;display:flex;align-items:center;justify-content:flex-start;padding-left:8px;color:#1565c0;font-size:11px;font-weight:700;white-space:nowrap;transition:flex 0.4s var(--transition);}
+[data-theme="dark"] .shap-push-lower{background:#13325c;color:#90caf9;}
+.shap-base-val{font-size:12px;color:var(--text);text-align:center;font-weight:500;}
 /* ── PET WIDGET ── */
-.pet-widget{width:100%;height:100%;background:#fffdf9;display:flex;flex-direction:column;padding:12px 14px;box-sizing:border-box}
-.pet-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #fde68a;padding-bottom:5px;margin-bottom:8px}
-.pet-title{font-size:14px;font-weight:700;color:#854F0B}
+.pet-widget{width:100%;height:100%;background:var(--bg2);display:flex;flex-direction:column;padding:14px;box-sizing:border-box}
+.pet-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:10px}
+.pet-title{font-size:14px;font-weight:700;color:#854F0B;display:flex;align-items:center;gap:6px;}
+[data-theme="dark"] .pet-title{color:#fcd34d;}
+.pet-controls{display:flex;align-items:center;gap:6px;}
+.pet-clear-btn{font-size:10px;font-weight:700;border:1px solid var(--border);background:var(--bg);color:var(--muted);padding:2px 6px;border-radius:4px;cursor:pointer;transition:var(--transition);}
+.pet-clear-btn:hover{background:#ffcdd2;color:#c62828;border-color:#ff8a80;}
 .pet-sim-form{display:flex;gap:5px;margin-bottom:8px;align-items:center;flex-wrap:wrap}
-.pet-select{font-size:11px;padding:3px 6px;border-radius:5px;border:1px solid #fde68a;background:#fff;color:#5c4400}
-.pet-btn{font-size:11px;padding:3px 10px;border-radius:5px;border:none;background:#854F0B;color:#fff;font-weight:700;cursor:pointer;transition:background .2s}
-.pet-btn:hover{background:#5c4400}
-.pet-table-container{flex:1;overflow-y:auto;border:1px solid #fde68a;border-radius:5px;background:#fff}
-.pet-table{width:100%;border-collapse:collapse;font-size:11px;text-align:left}
-.pet-table th{background:#FAEEDA;color:#854F0B;padding:5px 8px;font-weight:700;position:sticky;top:0}
-.pet-table td{padding:5px 8px;border-bottom:1px solid #fcf7eb;color:var(--text)}
+.pet-select{font-size:11px;padding:4px 8px;border-radius:5px;border:1px solid var(--border);background:var(--bg);color:var(--text);outline:none;font-weight:600;}
+.pet-btn{font-size:11px;padding:4.5px 12px;border-radius:5px;border:none;background:#854F0B;color:#fff;font-weight:700;cursor:pointer;transition:var(--transition);box-shadow:var(--shadow-sm);}
+.pet-btn:hover{background:#5c4400;transform:translateY(-1px);}
+.pet-table-container{flex:1;overflow-y:auto;border:1px solid var(--border);border-radius:6px;background:var(--bg);box-shadow:var(--shadow-sm);max-height:120px;}
+.pet-table{width:100%;border-collapse:collapse;font-size:11px;text-align:left;}
+.pet-table th{background:var(--bg2);color:#854F0B;padding:6px 10px;font-weight:700;position:sticky;top:0;border-bottom:1px solid var(--border);}
+[data-theme="dark"] .pet-table th{color:#fcd34d;}
+.pet-table td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle;}
 .pet-table tr:last-child td{border-bottom:none}
-
+.pet-status-badge{font-weight:700;cursor:pointer;padding:2px 6px;border-radius:100px;font-size:10px;display:inline-block;text-align:center;user-select:none;transition:var(--transition);}
+.pet-status-badge:hover{transform:scale(1.05);}
+.pet-status-completed{background:#d1fae5;color:#065f46;}
+[data-theme="dark"] .pet-status-completed{background:#064e3b;color:#a7f3d0;}
+.pet-status-pending{background:#ffedd5;color:#9a3412;}
+[data-theme="dark"] .pet-status-pending{background:#7c2d12;color:#ffedd5;}
+.pet-status-inprogress{background:#dbeafe;color:#1e40af;}
+[data-theme="dark"] .pet-status-inprogress{background:#1e3a8a;color:#dbeafe;}
+/* ── WIDGET: PYTHON E-COMMERCE CHARTS (NEW) ── */
+.pychart-widget{width:100%;height:100%;background:var(--bg2);display:flex;flex-direction:column;padding:14px;box-sizing:border-box}
+.pychart-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:10px}
+.pychart-title{font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;}
+.pychart-tabs{display:flex;gap:4px}
+.pychart-tab-btn{font-family:'Outfit', sans-serif;font-size:10px;padding:3.5px 8px;border-radius:100px;border:1px solid var(--border);background:var(--bg);cursor:pointer;color:var(--muted);font-weight:600;transition:var(--transition)}
+.pychart-tab-btn.active{background:var(--accent-light);border-color:var(--accent-mid);color:var(--accent);}
+.pychart-content{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;}
+.pychart-vis-area{height:120px;display:flex;align-items:flex-end;justify-content:space-around;padding-top:10px;padding-bottom:16px;border-bottom:1px dashed var(--border);position:relative;}
+.pychart-bar-col{display:flex;flex-direction:column;align-items:center;width:24%;height:100%;justify-content:flex-end;position:relative;cursor:pointer;}
+.pychart-bar{width:70%;background:linear-gradient(to top, var(--accent), var(--accent-mid));border-radius:4px 4px 0 0;height:0%;transition:height 0.6s cubic-bezier(0.4, 0, 0.2, 1);position:relative;box-shadow:var(--shadow-sm);}
+.pychart-bar-col:hover .pychart-bar{filter:brightness(1.1);box-shadow:0 0 8px var(--glow-accent);}
+.pychart-bar-val{font-size:10px;font-weight:700;margin-bottom:4px;color:var(--navy);opacity:0;transition:opacity 0.3s;position:absolute;top:-16px;white-space:nowrap;}
+.pychart-bar-col:hover .pychart-bar-val{opacity:1;}
+.pychart-bar-lbl{font-size:10px;color:var(--muted);position:absolute;bottom:-18px;font-weight:600;text-align:center;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pychart-caption{font-size:11px;color:var(--muted);margin-top:22px;text-align:center;font-style:italic;}
+/* ── WIDGET: SQL CONSOLE INTERACTIVE (NEW) ── */
+.sql-widget{width:100%;height:100%;background:var(--bg2);display:flex;flex-direction:column;padding:14px;box-sizing:border-box}
+.sql-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:10px}
+.sql-title{font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;}
+.sql-select-wrapper{flex:1;max-width:180px;}
+.sql-select{width:100%;font-size:11px;padding:3px 6px;border-radius:4px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-weight:600;outline:none;}
+.sql-main{display:flex;flex-direction:column;gap:8px;flex:1;}
+.sql-code-panel{background:#1e293b;border-radius:6px;padding:8px 10px;position:relative;height:70px;overflow-y:auto;}
+.sql-code{font-family:'JetBrains Mono', monospace;font-size:9.5px;color:#f8fafc;white-space:pre-wrap;line-height:1.4;}
+.sql-code .keyword{color:#f472b6;font-weight:700;}
+.sql-code .func{color:#60a5fa;}
+.sql-code .str{color:#34d399;}
+.sql-code .join{color:#fbbf24;}
+.sql-action-row{display:flex;align-items:center;justify-content:space-between;}
+.sql-schema-hint{font-size:10px;color:var(--muted);font-weight:500;}
+.sql-run-btn{font-family:'Outfit', sans-serif;font-size:11px;font-weight:700;padding:4px 12px;background:#38bdf8;color:#0f172a;border:none;border-radius:4px;cursor:pointer;transition:var(--transition);display:flex;align-items:center;gap:4px;box-shadow:var(--shadow-sm);}
+.sql-run-btn:hover{background:#0ea5e9;transform:translateY(-1px);}
+.sql-results-panel{border:1px solid var(--border);border-radius:6px;background:var(--bg);max-height:85px;overflow-y:auto;position:relative;}
+.sql-results-table{width:100%;border-collapse:collapse;font-size:10px;text-align:left;}
+.sql-results-table th{background:var(--bg2);color:var(--navy);font-weight:700;padding:4px 8px;border-bottom:1px solid var(--border);position:sticky;top:0;}
+.sql-results-table td{padding:4px 8px;border-bottom:1px solid var(--border);color:var(--text);}
+.sql-results-table tr:last-child td{border-bottom:none;}
+.sql-loader{position:absolute;inset:0;background:rgba(255,255,255,0.85);display:none;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--accent);}
+[data-theme="dark"] .sql-loader{background:rgba(15,23,42,0.85);}
+.sql-spinner{border:2px solid var(--border);border-top:2px solid var(--accent);border-radius:50%;width:14px;height:14px;animation:spin 0.6s linear infinite;margin-right:6px;}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+/* ── WIDGET: SUPPLY CHAIN MONITOR (NEW) ── */
+.scmon-widget{width:100%;height:100%;background:var(--bg2);display:flex;flex-direction:column;padding:14px;box-sizing:border-box}
+.scmon-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:10px}
+.scmon-title{font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;}
+.scmon-summary-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;transition:var(--transition);}
+.scmon-summary-badge.clean{background:#d1fae5;color:#065f46;border-color:#6ee7b7;}
+[data-theme="dark"] .scmon-summary-badge{background:#7f1d1d;color:#fecaca;border-color:#b91c1c;}
+[data-theme="dark"] .scmon-summary-badge.clean{background:#064e3b;color:#a7f3d0;border-color:#047857;}
+.scmon-main{display:flex;flex-direction:column;gap:8px;flex:1;}
+.scmon-controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:var(--bg);padding:8px;border-radius:6px;border:1px solid var(--border);}
+.scmon-ctrl{display:flex;flex-direction:column;gap:2px;}
+.scmon-ctrl label{font-size:9.5px;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;}
+.scmon-ctrl label span{color:var(--accent);}
+.scmon-slider{width:100%;-webkit-appearance:none;appearance:none;height:3px;background:var(--border);border-radius:1.5px;outline:none;accent-color:var(--accent);}
+.scmon-table-container{flex:1;overflow-y:auto;border:1px solid var(--border);border-radius:6px;background:var(--bg);box-shadow:var(--shadow-sm);max-height:105px;}
+.scmon-table{width:100%;border-collapse:collapse;font-size:10.5px;text-align:left;}
+.scmon-table th{background:var(--bg2);color:var(--navy);padding:5px 8px;font-weight:700;border-bottom:1px solid var(--border);position:sticky;top:0;}
+.scmon-table td{padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle;}
+.scmon-table tr:last-child td{border-bottom:none;}
+.scmon-alert{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;display:inline-block;}
+.scmon-alert.danger{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;}
+[data-theme="dark"] .scmon-alert.danger{background:#5c1d1d;color:#fecaca;}
+.scmon-alert.pass{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;}
+[data-theme="dark"] .scmon-alert.pass{background:#143e26;color:#a7f3d0;}
 /* ── SKILLS ── */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.skill-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}
-.skill-box .sk-label{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+.skill-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-md);transition:var(--transition);}
+.skill-box:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent-mid);}
+.skill-box .sk-label{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:12px;letter-spacing:-.01em;}
 .sk-pills{display:flex;flex-wrap:wrap;gap:7px}
-.sk-pill{font-size:13px;padding:4px 13px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);font-weight:500}
-
+.sk-pill{font-size:12.5px;padding:5px 12px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);font-weight:600;transition:var(--transition);}
+.sk-pill:hover{background:var(--accent-light);color:var(--accent);border-color:var(--accent-mid);transform:scale(1.03);}
 /* ── CERTS ── */
-.cert-list{display:flex;flex-direction:column;gap:.875rem}
-.cert{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:16px}
-.cert-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.cert-icon.aws{background:#FAEEDA}
-.cert-icon.pbi{background:var(--accent-light)}
-.cert-info p{font-size:16px;font-weight:700;color:var(--navy)}
-.cert-info span{font-size:13px;color:var(--muted)}
-
+.cert-list{display:flex;flex-direction:column;gap:1rem}
+.cert{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow-md);transition:var(--transition);}
+.cert:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent-mid);}
+.cert-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;box-shadow:var(--shadow-sm);}
+.cert-icon.aws{background:#FAEEDA;color:#854F0B;}
+.cert-icon.pbi{background:var(--accent-light);color:var(--accent);}
+[data-theme="dark"] .cert-icon.aws{background:#2a1f10;color:#fcd34d;}
+.cert-info p{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:2px;}
+.cert-info span{font-size:13px;color:var(--muted);font-weight:500;}
 /* ── EDUCATION ── */
-.edu-list{display:flex;flex-direction:column;gap:.875rem}
-.edu{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.edu-left p{font-size:16px;font-weight:700;color:var(--navy)}
-.edu-left span{font-size:14px;color:var(--muted)}
+.edu-list{display:flex;flex-direction:column;gap:1rem}
+.edu{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;box-shadow:var(--shadow-md);transition:var(--transition);flex-wrap:wrap}
+.edu:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent-mid);}
+.edu-left p{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.edu-left span{font-size:14px;color:var(--muted);font-weight:500;}
 .edu-right{text-align:right;flex-shrink:0}
-.edu-right .pct{font-size:26px;font-weight:800;color:var(--accent)}
-.edu-right .yr{font-size:13px;color:var(--muted)}
-
+.edu-right .pct{font-size:28px;font-weight:800;color:var(--accent);line-height:1.1;}
+.edu-right .yr{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px;}
 /* ── LANGUAGES ── */
-.lang-row{display:flex;flex-wrap:wrap;gap:.875rem}
-.lang{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.5rem;display:flex;flex-direction:column;gap:4px;min-width:140px}
-.lang .lang-name{font-size:15px;font-weight:600;color:var(--navy)}
-.lang .lang-level{font-size:13px;color:var(--muted)}
-
+.lang-row{display:flex;flex-wrap:wrap;gap:1rem}
+.lang{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.75rem;display:flex;flex-direction:column;gap:4px;min-width:160px;box-shadow:var(--shadow-md);transition:var(--transition);}
+.lang:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent-mid);}
+.lang .lang-name{font-size:16px;font-weight:700;color:var(--navy)}
+.lang .lang-level{font-size:13px;color:var(--muted);font-weight:600;}
 /* ── FOOTER ── */
-footer{text-align:center;padding:2.5rem 2rem;font-size:14px;color:var(--muted);border-top:1px solid var(--border);background:var(--bg);margin-top:2rem}
-footer a{color:var(--accent)}
-
+footer{text-align:center;padding:3rem 2rem;font-size:14px;color:var(--muted);border-top:1px solid var(--border);background:var(--bg);margin-top:3rem}
+footer a{color:var(--accent);font-weight:600;}
+footer a:hover{color:var(--navy);}
 /* ── RESPONSIVE ── */
+@media(max-width:850px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:700px){
-  .hero{flex-direction:column;gap:1.5rem;text-align:center}
+  .hero{flex-direction:column;gap:1.75rem;text-align:center;padding:2.5rem 1.75rem;}
   .contact-row{justify-content:center}
   .badge-row{justify-content:center}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .edu{flex-direction:column}
+  .edu{flex-direction:column;gap:10px;}
   .edu-right{text-align:left}
-  .hero-text h1{font-size:28px}
-  .avatar{width:96px;height:96px;font-size:30px}
+  .hero-text h1{font-size:32px}
+  .avatar{width:110px;height:110px;font-size:36px}
+  .nav-inner{padding:0 1.25rem}
+  .nav-links{display:none;} /* Hidden on mobile for simplicity, keep logo/toggle */
+  .page{padding:1.5rem 1.25rem 3rem}
+  .projects-grid{grid-template-columns:1fr;}
+  .xai-controls-grid{grid-template-columns:1fr;}
+  .scmon-controls{grid-template-columns:1fr;}
+  .scmon-table-container{max-height:130px;}
 }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
-<nav>
+<nav id="navbar">
   <div class="nav-inner">
-    <!--<span class="nav-logo">GJN</span>-->
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#education">Education</a>
+    <div class="nav-logo">GJN</div>
+    <div class="nav-controls">
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+      </div>
+      <!-- Theme Toggle Switcher -->
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">🌞</button>
     </div>
   </div>
 </nav>
-
 <div class="page">
-
   <!-- HERO -->
   <div class="hero">
     <div class="avatar-wrap">
@@ -229,8 +372,8 @@ footer a{color:var(--accent)}
       <div class="contact-row">
         <a href="mailto:gjnair93@gmail.com">✉ gjnair93@gmail.com</a>
         <a href="https://www.linkedin.com/in/gowri-j-nair-8471322a6" target="_blank">in LinkedIn</a>
-        <a href="https://github.com/gjnair22" target="_blank">&#x2756; GitHub</a>
-        <a href="tel:+917676425251">&#128222; +91 76764 25251</a>
+        <a href="https://github.com/gjnair22" target="_blank">❖ GitHub</a>
+        <a href="tel:+917676425251">📞 +91 76764 25251</a>
       </div>
       <div class="badge-row">
         <span class="badge hi">Power BI</span>
@@ -241,24 +384,28 @@ footer a{color:var(--accent)}
       </div>
     </div>
   </div>
-
   <!-- STATS -->
   <div class="stats">
-    <div class="stat-card"><div class="num">5</div><div class="lbl">Projects built</div></div>
+    <div class="stat-card"><div class="num" id="stat-projects">8</div><div class="lbl">Projects built</div></div>
     <div class="stat-card"><div class="num">86.51%</div><div class="lbl">M.Sc. aggregate</div></div>
     <div class="stat-card"><div class="num">2</div><div class="lbl">Certifications</div></div>
     <div class="stat-card"><div class="num">5</div><div class="lbl">Languages spoken</div></div>
   </div>
-
   <!-- PROJECTS -->
   <div class="section" id="projects">
     <div class="section-title">Projects</div>
-    <div class="projects-grid">
-
-      <!-- Supply Chain -->
-      <div class="pcard">
-        <div class="screenshot carousel" id="carousel-supplychain"
-             onclick="openLightbox('lb-supplychain')">
+    
+    <!-- Category Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('bi', this)">Power BI Dashboards</button>
+      <button class="filter-btn" onclick="filterProjects('python', this)">Python &amp; ML</button>
+      <button class="filter-btn" onclick="filterProjects('sql', this)">SQL &amp; Database Analytics</button>
+    </div>
+    <div class="projects-grid" id="projects-container">
+      <!-- PROJECT 1: Supply Chain (Power BI) -->
+      <div class="pcard" data-category="bi">
+        <div class="screenshot carousel" id="carousel-supplychain" onclick="openLightbox('lb-supplychain')">
           <div class="carousel-track">
             <img src="Executive Overview.png" alt="Supply Chain Dashboard — Executive Overview"/>
             <img src="Inventory and Supplier Performance.png" alt="Supply Chain Dashboard — Inventory & Supplier"/>
@@ -269,7 +416,7 @@ footer a{color:var(--accent)}
             <span class="dot active" onclick="event.stopPropagation();setSlide('carousel-supplychain',0)"></span>
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-supplychain',1)"></span>
           </div>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <span class="expand-hint">📸 Click to expand</span>
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -277,7 +424,7 @@ footer a{color:var(--accent)}
             <span class="pcard-tag">Power BI · 2026</span>
           </div>
           <h3>Supply Chain Analytics Dashboard</h3>
-          <p>Multi-page dashboard covering inventory, supplier efficiency, manufacturing costs, and logistics KPIs. Built DAX measures for Revenue, Stock Levels, Lead Time, and Defect Rate.</p>
+          <p>Multi-page dashboard covering inventory levels, supplier efficiency, manufacturing costs, and logistics KPIs. Built DAX measures for Revenue, Stock Levels, Lead Time, and Defect Rate.</p>
           <div class="tool-row">
             <span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power Query</span><span class="tool">Business Intelligence</span>
           </div>
@@ -286,11 +433,9 @@ footer a{color:var(--accent)}
           <a href="https://github.com/gjnair22/Supply-Chain-Analytics-Dashboard-using-Power-BI" target="_blank">View on GitHub →</a>
         </div>
       </div>
-
-      <!-- HR Analytics -->
-      <div class="pcard">
-        <div class="screenshot carousel" id="carousel-hr"
-             onclick="openLightbox('lb-hr')">
+      <!-- PROJECT 2: HR Analytics (Power BI) -->
+      <div class="pcard" data-category="bi">
+        <div class="screenshot carousel" id="carousel-hr" onclick="openLightbox('lb-hr')">
           <div class="carousel-track">
             <img src="Executive Summary.png" alt="HR Dashboard — Executive Summary"/>
             <img src="Employee Demographics.png" alt="HR Dashboard — Demographics"/>
@@ -303,7 +448,7 @@ footer a{color:var(--accent)}
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-hr',1)"></span>
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-hr',2)"></span>
           </div>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <span class="expand-hint">📸 Click to expand</span>
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -320,12 +465,11 @@ footer a{color:var(--accent)}
           <a href="https://github.com/gjnair22/HR-Analytics-Dashboard-using-Power-BI" target="_blank">View on GitHub →</a>
         </div>
       </div>
-
-      <!-- Superstore -->
-      <div class="pcard">
-        <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+      <!-- PROJECT 3: Superstore (Power BI) -->
+      <div class="pcard" data-category="bi">
+        <div class="screenshot" onclick="openLightbox('lb-superstore')">
           <img src="Dashboard.png" alt="Superstore Sales Dashboard"/>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <span class="expand-hint">📸 Click to expand</span>
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -342,47 +486,193 @@ footer a{color:var(--accent)}
           <a href="https://github.com/gjnair22/Superstore-Sales-and-Profit-Analysis-Dashboard-using-PowerBI" target="_blank">View on GitHub →</a>
         </div>
       </div>
-
-      <!-- XAI -->
-      <div class="pcard">
+      <!-- PROJECT 4: E-Commerce Analytics (Python - NEW) -->
+      <div class="pcard" data-category="python">
+        <div class="screenshot">
+          <img src="E-Com Dash.png" alt="E-Commerce Analytics using Python" class="project-image">
+        </div>
+            <div class="pychart-content">
+              <div class="pychart-vis-area" id="py-chart-area">
+                <!-- Dyn chart columns will render here -->
+              </div>
+              <div class="pychart-caption" id="py-chart-caption">Loading chart...</div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top">
+            <div class="pcard-icon ml">🐍</div>
+            <span class="pcard-tag">Python · EDA · 2026</span>
+          </div>
+          <h3>E-Commerce Analytics using Python</h3>
+          <p>Exploratory Data Analysis using Pandas, NumPy, and Matplotlib. Analyzed customer behaviors, seasonal revenue peaks, payment types, and geographical delivery delays.</p>
+          <div class="tool-row">
+            <span class="tool">Python</span><span class="tool">Pandas</span><span class="tool">NumPy</span><span class="tool">Matplotlib</span><span class="tool">Exploratory Analysis</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://github.com/gjnair22/E-Commerce-Analytics-using-Python" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+      <!-- PROJECT 5: E-Commerce Sales Analytics (SQL - NEW) -->
+      <div class="pcard" data-category="sql">
+        <div class="screenshot">
+          <img src="Q6.png"
+         alt="E-Commerce Sales Analytics using SQL"
+         class="project-image"></div>
+            <div class="sql-main">
+              <div class="sql-code-panel">
+                <div class="sql-code" id="sql-code-display">-- SELECT QUERY</div>
+              </div>
+              <div class="sql-action-row">
+                <span class="sql-schema-hint">Schema: <code>orders</code>, <code>customers</code>, <code>payments</code></span>
+                <button class="sql-run-btn" onclick="runMockQuery()">
+                  <div class="sql-spinner" id="sql-btn-spinner" style="display:none"></div>
+                  <span>Run Query ▶</span>
+                </button>
+              </div>
+              <div class="sql-results-panel">
+                <div class="sql-loader" id="sql-results-loader">
+                  <div class="sql-spinner"></div> Loading result set...
+                </div>
+                <table class="sql-results-table" id="sql-results-table">
+                  <!-- Dynamic rows go here -->
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top">
+            <div class="pcard-icon db">🗄</div>
+            <span class="pcard-tag">SQL · MySQL · 2026</span>
+          </div>
+          <h3>E-Commerce Sales Analytics using SQL</h3>
+          <p>Designed queries involving multi-table Joins, Common Table Expressions (CTEs), and Window Functions (`RANK`, `LAG`, `LEAD`) to extract action-oriented business KPIs.</p>
+          <div class="tool-row">
+            <span class="tool">SQL</span><span class="tool">MySQL</span><span class="tool">CTEs</span><span class="tool">Window Functions</span><span class="tool">Database Querying</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://github.com/gjnair22/E-Commerce-Analytics-using-SQL" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+      <!-- PROJECT 6: Supply Chain Analytics (SQL - NEW) -->
+      <div class="pcard" data-category="sql">
+        <div class="screenshot" style="cursor:default">
+          <div class="scmon-widget">
+            <div class="scmon-header">
+              <span class="scmon-title">⛓ Supply Chain Metrics Monitor</span>
+              <span class="scmon-summary-badge" id="scmon-summary-badge">0 Alerts</span>
+            </div>
+            <div class="scmon-main">
+              <div class="scmon-controls">
+                <div class="scmon-ctrl">
+                  <label>Max Lead Time: <span id="scmon-lbl-lead">10d</span></label>
+                  <input type="range" class="scmon-slider" id="scmon-val-lead" min="5" max="20" value="10" oninput="updateScSim()">
+                </div>
+                <div class="scmon-ctrl">
+                  <label>Max Defect %: <span id="scmon-lbl-defect">2.5%</span></label>
+                  <input type="range" class="scmon-slider" id="scmon-val-defect" min="1.0" max="5.0" step="0.5" value="2.5" oninput="updateScSim()">
+                </div>
+                <div class="scmon-ctrl">
+                  <label>Min Stock: <span id="scmon-lbl-stock">100</span></label>
+                  <input type="range" class="scmon-slider" id="scmon-val-stock" min="50" max="300" step="25" value="100" oninput="updateScSim()">
+                </div>
+              </div>
+              <div class="scmon-table-container">
+                <table class="scmon-table">
+                  <thead>
+                    <tr><th>Item / Supp.</th><th>Lead</th><th>Defect%</th><th>Stock</th><th>Alert status</th></tr>
+                  </thead>
+                  <tbody id="scmon-rows">
+                    <!-- Dynamic validation rows go here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top">
+            <div class="pcard-icon db">🗄</div>
+            <span class="pcard-tag">SQL · MySQL · 2026</span>
+          </div>
+          <h3>Supply Chain Analytics using SQL</h3>
+          <p>Aggregated metrics using MySQL to dissect delivery logistics, transportation costs, and defect rates. Flagged under-performing suppliers and localized delays.</p>
+          <div class="tool-row">
+            <span class="tool">SQL</span><span class="tool">MySQL</span><span class="tool">Data Analytics</span><span class="tool">KPI Monitoring</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://github.com/gjnair22/Supply-Chain-Analytics-using-SQL" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+      <!-- PROJECT 7: Explainable AI (Python) -->
+      <div class="pcard" data-category="python">
         <div class="screenshot" style="cursor:default">
           <div class="xai-widget">
             <div class="xai-header">
-              <span class="xai-title">🧠 SHAP Explainer (Interactive)</span>
+              <span class="xai-title">🧠 SHAP Interactive Explainer</span>
               <div class="xai-tabs">
                 <button class="xai-tab-btn active" id="xai-tab-imp" onclick="switchXaiTab('imp')">Importance</button>
                 <button class="xai-tab-btn" id="xai-tab-force" onclick="switchXaiTab('force')">Force Plot</button>
               </div>
             </div>
             <div class="xai-content">
+              <!-- Controls for changing features -->
+              <div class="xai-controls-grid">
+                <div class="xai-control-group">
+                  <label>Chest Pain: <span id="lbl-cp">Asym</span></label>
+                  <select class="xai-select" id="val-cp" onchange="updateXaiSim()">
+                    <option value="Asymptomatic">Asymptomatic</option>
+                    <option value="Non-Anginal">Non-Anginal</option>
+                    <option value="Atypical Angina">Atypical Angina</option>
+                    <option value="Typical Angina">Typical Angina</option>
+                  </select>
+                </div>
+                <div class="xai-control-group">
+                  <label>Max Heart Rate: <span id="lbl-hr-val">150</span></label>
+                  <input type="range" class="xai-slider" id="val-hr" min="90" max="200" value="150" oninput="updateXaiSim()"/>
+                </div>
+                <div class="xai-control-group">
+                  <label>Patient Age: <span id="lbl-age">55</span></label>
+                  <input type="range" class="xai-slider" id="val-age" min="20" max="80" value="55" oninput="updateXaiSim()"/>
+                </div>
+                <div class="xai-control-group">
+                  <label>Cholesterol: <span id="lbl-chol">240</span></label>
+                  <input type="range" class="xai-slider" id="val-chol" min="120" max="400" value="240" oninput="updateXaiSim()"/>
+                </div>
+              </div>
+              <!-- Visualizations -->
               <div class="xai-bar-chart" id="xai-chart-imp">
                 <div class="xai-bar-row" title="Chest pain type — highest heart risk indicator">
                   <span class="xai-bar-label">Chest Pain</span>
-                  <div class="xai-bar-container"><div class="xai-bar-fill" style="width:85%"></div></div>
-                  <span class="xai-bar-val">0.85</span>
+                  <div class="xai-bar-container"><div class="xai-bar-fill" id="xai-bar-cp" style="width:85%"></div></div>
+                  <span class="xai-bar-val" id="xai-val-cp">0.85</span>
                 </div>
                 <div class="xai-bar-row" title="Max heart rate in stress test">
                   <span class="xai-bar-label">Max HR</span>
-                  <div class="xai-bar-container"><div class="xai-bar-fill" style="width:72%"></div></div>
-                  <span class="xai-bar-val">0.72</span>
+                  <div class="xai-bar-container"><div class="xai-bar-fill" id="xai-bar-hr" style="width:72%"></div></div>
+                  <span class="xai-bar-val" id="xai-val-hr">0.72</span>
                 </div>
                 <div class="xai-bar-row" title="Patient age in years">
                   <span class="xai-bar-label">Age</span>
-                  <div class="xai-bar-container"><div class="xai-bar-fill" style="width:48%"></div></div>
-                  <span class="xai-bar-val">0.48</span>
+                  <div class="xai-bar-container"><div class="xai-bar-fill" id="xai-bar-age" style="width:48%"></div></div>
+                  <span class="xai-bar-val" id="xai-val-age">0.48</span>
                 </div>
                 <div class="xai-bar-row" title="Serum cholesterol level (mg/dl)">
                   <span class="xai-bar-label">Cholesterol</span>
-                  <div class="xai-bar-container"><div class="xai-bar-fill" style="width:35%"></div></div>
-                  <span class="xai-bar-val">0.35</span>
+                  <div class="xai-bar-container"><div class="xai-bar-fill" id="xai-bar-chol" style="width:35%"></div></div>
+                  <span class="xai-bar-val" id="xai-val-chol">0.35</span>
                 </div>
               </div>
               <div class="shap-force-plot" id="xai-chart-force" style="display:none">
                 <div class="shap-scale">
-                  <div class="shap-push-lower">◄ Lower Risk (MaxHR=162)</div>
-                  <div class="shap-push-higher">Higher Risk (ChestPain=Asym) ►</div>
+                  <div class="shap-push-lower" id="force-lower" style="flex: 4">◄ Lower Risk</div>
+                  <div class="shap-push-higher" id="force-higher" style="flex: 6">Higher Risk ►</div>
                 </div>
-                <div class="shap-base-val"><strong>Output Value: 0.74</strong> &nbsp;(Base Value: 0.35)</div>
+                <div class="shap-base-val"><strong>Model Output Value: <span id="shap-out-val">0.74</span></strong> &nbsp;(Base Value: 0.35)</div>
               </div>
             </div>
           </div>
@@ -392,8 +682,8 @@ footer a{color:var(--accent)}
             <div class="pcard-icon ml">🧠</div>
             <span class="pcard-tag">Python · ML · 2025</span>
           </div>
-          <h3>Heart Disease Detection Using Explainable AI</h3>
-          <p>Built and benchmarked Logistic Regression, Random Forest &amp; XGBoost on clinical data. Applied SHAP to translate complex model outputs into stakeholder-ready insights.</p>
+          <h3>Heart Disease Detection &amp; Explainable AI</h3>
+          <p>Built and benchmarked Logistic Regression, Random Forest, &amp; XGBoost on clinical datasets. Applied SHAP (SHapley Additive exPlanations) to translate complex outputs into stakeholder-ready insights.</p>
           <div class="tool-row">
             <span class="tool">Python</span><span class="tool">Scikit-learn</span><span class="tool">XGBoost</span><span class="tool">SHAP</span><span class="tool">Pandas</span>
           </div>
@@ -402,33 +692,36 @@ footer a{color:var(--accent)}
           <span class="no-link">Academic research project</span>
         </div>
       </div>
-
-      <!-- Pet Grooming -->
-      <div class="pcard">
+      <!-- PROJECT 8: Pet Grooming Relational (SQL) -->
+      <div class="pcard" data-category="sql">
         <div class="screenshot" style="cursor:default">
           <div class="pet-widget">
             <div class="pet-header">
-              <span class="pet-title">🗄 Booking DB Simulation</span>
+              <span class="pet-title">🗄 Relational Booking Simulator</span>
+              <div class="pet-controls">
+                <button class="pet-clear-btn" onclick="clearBookings()">Reset DB</button>
+              </div>
             </div>
             <div class="pet-sim-form">
               <select class="pet-select" id="pet-type">
-                <option>🐕 Dog (Max)</option>
-                <option>🐈 Cat (Luna)</option>
-                <option>🐇 Rabbit (Coco)</option>
+                <option value="🐕 Dog (Max)">🐕 Dog (Max)</option>
+                <option value="🐈 Cat (Luna)">🐈 Cat (Luna)</option>
+                <option value="🐇 Rabbit (Coco)">🐇 Rabbit (Coco)</option>
+                <option value="🐕 Dog (Bella)">🐕 Dog (Bella)</option>
+                <option value="🐈 Cat (Oliver)">🐈 Cat (Oliver)</option>
               </select>
               <select class="pet-select" id="pet-service">
-                <option>Full Groom ($40)</option>
-                <option>Bath &amp; Brush ($20)</option>
-                <option>Nail Trim ($10)</option>
+                <option value="Full Groom">Full Groom ($40)</option>
+                <option value="Bath &amp; Brush">Bath &amp; Brush ($20)</option>
+                <option value="Nail Trim">Nail Trim ($10)</option>
               </select>
-              <button class="pet-btn" onclick="addBooking()">Book</button>
+              <button class="pet-btn" onclick="addBooking()">Insert</button>
             </div>
             <div class="pet-table-container">
               <table class="pet-table">
-                <thead><tr><th>ID</th><th>Pet</th><th>Service</th><th>Status</th></tr></thead>
+                <thead><tr><th>ID</th><th>Pet Name</th><th>Groom Service</th><th>Status (Toggle)</th></tr></thead>
                 <tbody id="pet-rows">
-                  <tr><td>#104</td><td>🐕 Dog (Bella)</td><td>Full Groom</td><td><span style="color:#2e7d32;font-weight:700">Completed</span></td></tr>
-                  <tr><td>#105</td><td>🐈 Cat (Oliver)</td><td>Bath &amp; Brush</td><td><span style="color:#e65100;font-weight:700">Pending</span></td></tr>
+                  <!-- Populated dynamically via JS -->
                 </tbody>
               </table>
             </div>
@@ -440,7 +733,7 @@ footer a{color:var(--accent)}
             <span class="pcard-tag">PHP · MySQL · 2024</span>
           </div>
           <h3>Pet Grooming Booking Platform</h3>
-          <p>Full-stack web app with normalized relational database, CRUD operations, session handling, and an admin dashboard for operational booking analytics.</p>
+          <p>Full-stack web application with normalized relational database structure, CRUD transactional operations, session handling, and an administrative dashboard for booking analytics.</p>
           <div class="tool-row">
             <span class="tool">SQL</span><span class="tool">MySQL</span><span class="tool">PHP</span><span class="tool">Database Design</span>
           </div>
@@ -449,10 +742,8 @@ footer a{color:var(--accent)}
           <span class="no-link">Academic project</span>
         </div>
       </div>
-
     </div>
   </div>
-
   <!-- SKILLS -->
   <div class="section" id="skills">
     <div class="section-title">Technical Skills</div>
@@ -476,14 +767,13 @@ footer a{color:var(--accent)}
         </div>
       </div>
       <div class="skill-box">
-        <div class="sk-label">Analytics</div>
+        <div class="sk-label">Analytics &amp; Modeling</div>
         <div class="sk-pills">
           <span class="sk-pill">EDA</span><span class="sk-pill">Feature Engineering</span><span class="sk-pill">Statistical Analysis</span><span class="sk-pill">Dashboard Development</span>
         </div>
       </div>
     </div>
   </div>
-
   <!-- CERTIFICATIONS -->
   <div class="section" id="certifications">
     <div class="section-title">Certifications</div>
@@ -504,7 +794,6 @@ footer a{color:var(--accent)}
       </div>
     </div>
   </div>
-
   <!-- EDUCATION -->
   <div class="section" id="education">
     <div class="section-title">Education</div>
@@ -530,7 +819,6 @@ footer a{color:var(--accent)}
       </div>
     </div>
   </div>
-
   <!-- LANGUAGES -->
   <div class="section">
     <div class="section-title">Languages</div>
@@ -542,9 +830,7 @@ footer a{color:var(--accent)}
       <div class="lang"><span class="lang-name">Tamil</span><span class="lang-level">Conversational</span></div>
     </div>
   </div>
-
 </div>
-
 <!-- FOOTER -->
 <footer>
   Gowri J Nair &nbsp;·&nbsp; Data Analyst &nbsp;·&nbsp; Bangalore, India &nbsp;·&nbsp; Available to relocate to Dubai, UAE<br><br>
@@ -552,9 +838,7 @@ footer a{color:var(--accent)}
   <a href="https://www.linkedin.com/in/gowri-j-nair-8471322a6" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
   <a href="https://github.com/gjnair22" target="_blank">GitHub</a>
 </footer>
-
 <!-- ══════════════ LIGHTBOXES ══════════════ -->
-
 <!-- Supply Chain Lightbox -->
 <div id="lb-supplychain" class="lb-inner" style="display:none">
   <div class="lb-header">
@@ -574,7 +858,6 @@ footer a{color:var(--accent)}
     <span class="lb-dot" onclick="setLbSlide('lb-supplychain',1)"></span>
   </div>
 </div>
-
 <!-- HR Analytics Lightbox -->
 <div id="lb-hr" class="lb-inner" style="display:none">
   <div class="lb-header">
@@ -596,7 +879,6 @@ footer a{color:var(--accent)}
     <span class="lb-dot" onclick="setLbSlide('lb-hr',2)"></span>
   </div>
 </div>
-
 <!-- Superstore Lightbox -->
 <div id="lb-superstore" class="lb-inner" style="display:none">
   <div class="lb-header">
@@ -609,13 +891,56 @@ footer a{color:var(--accent)}
     </div>
   </div>
 </div>
-
 <!-- LIGHTBOX OVERLAY -->
 <div id="lightbox" onclick="if(event.target===this)closeLightbox()">
   <div id="lightbox-content"></div>
 </div>
-
 <script>
+/* ── THEME SWITCHER ── */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const btn = document.getElementById('theme-btn');
+  if (theme === 'dark') {
+    btn.innerHTML = '🌙';
+  } else {
+    btn.innerHTML = '🌞';
+  }
+  localStorage.setItem('portfolio-theme', theme);
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const target = current === 'light' ? 'dark' : 'light';
+  applyTheme(target);
+}
+// Set initial theme
+const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+applyTheme(savedTheme);
+/* ── PROJECT FILTERS ── */
+function filterProjects(category, btnElement) {
+  // Update active button state
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => btn.classList.remove('active'));
+  btnElement.classList.add('active');
+  // Filter cards
+  const cards = document.querySelectorAll('.pcard');
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category');
+    if (category === 'all' || cardCat === category) {
+      card.style.display = 'flex';
+      // Trigger subtle fading animation
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.style.opacity = '1';
+      }, 50);
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  // Update stat label dynamically for immediate feedback
+  document.getElementById('stat-projects').innerText = visibleCount;
+}
 /* ── CARD CAROUSELS ── */
 function moveCarousel(id,dir){
   const el=document.getElementById(id);
@@ -635,7 +960,6 @@ function setSlide(id,idx){
   track.style.transform=`translateX(-${idx*100}%)`;
   el.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
 }
-
 /* ── LIGHTBOX ── */
 function openLightbox(id){
   const lb=document.getElementById('lightbox');
@@ -643,10 +967,20 @@ function openLightbox(id){
   const inner=document.getElementById(id);
   content.innerHTML='';
   content.appendChild(inner.cloneNode(true));
+  
+  // Make clones visible
+  const clonedInner = content.querySelector('.lb-inner');
+  if (clonedInner) {
+    clonedInner.style.display = 'flex';
+  }
   // reset lightbox track to slide 0
   const track=content.querySelector('.lb-track');
-  if(track)track.style.transform='translateX(0)';
+  if(track) {
+    track.style.transform='translateX(0)';
+    track.dataset.index = 0;
+  }
   content.querySelectorAll('.lb-dot').forEach((d,i)=>d.classList.toggle('active',i===0));
+  
   // store which lb is open
   lb.dataset.current=id;
   lb.classList.add('open');
@@ -665,7 +999,6 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight')moveLb(id,1);
   if(e.key==='ArrowLeft')moveLb(id,-1);
 });
-
 function moveLb(id,dir){
   const content=document.getElementById('lightbox-content');
   const track=content.querySelector('.lb-track');
@@ -686,29 +1019,362 @@ function setLbSlide(id,idx){
   track.style.transform=`translateX(-${idx*100}%)`;
   content.querySelectorAll('.lb-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
 }
-
-/* ── XAI TAB ── */
+/* ── SHAP EXPLAINER SIMULATOR (PYTHON AI - UPGRADED INTERACTION) ── */
+function updateXaiSim() {
+  const cp = document.getElementById('val-cp').value;
+  const hr = parseInt(document.getElementById('val-hr').value);
+  const age = parseInt(document.getElementById('val-age').value);
+  const chol = parseInt(document.getElementById('val-chol').value);
+  // Update visual text labels
+  document.getElementById('lbl-cp').innerText = cp.substring(0, 7);
+  document.getElementById('lbl-hr-val').innerText = hr;
+  document.getElementById('lbl-age').innerText = age;
+  document.getElementById('lbl-chol').innerText = chol;
+  // Compute mock SHAP forces
+  // Base Risk is 0.35. Higher chest pain, lower max HR, higher age, and higher chol increase risk.
+  let cpImpact = 0.05;
+  if (cp === 'Asymptomatic') cpImpact = 0.28;
+  else if (cp === 'Non-Anginal') cpImpact = 0.12;
+  else if (cp === 'Atypical Angina') cpImpact = -0.08;
+  else if (cp === 'Typical Angina') cpImpact = -0.15;
+  // Max HR impact (lower heart rates under stress mean higher risk of coronary disease)
+  const hrImpact = (150 - hr) * 0.0035; 
+  // Age impact
+  const ageImpact = (age - 55) * 0.004;
+  // Cholesterol impact
+  const cholImpact = (chol - 240) * 0.0008;
+  const totalRisk = 0.35 + cpImpact + hrImpact + ageImpact + cholImpact;
+  const boundedRisk = Math.max(0.05, Math.min(0.95, totalRisk));
+  // Update importance values relative to bounds
+  document.getElementById('xai-val-cp').innerText = Math.abs(cpImpact).toFixed(2);
+  document.getElementById('xai-bar-cp').style.width = (Math.abs(cpImpact) * 250).toFixed(0) + '%';
+  
+  document.getElementById('xai-val-hr').innerText = Math.abs(hrImpact).toFixed(2);
+  document.getElementById('xai-bar-hr').style.width = (Math.min(0.95, Math.abs(hrImpact) * 200)).toFixed(0) + '%';
+  document.getElementById('xai-val-age').innerText = Math.abs(ageImpact).toFixed(2);
+  document.getElementById('xai-bar-age').style.width = (Math.min(0.95, Math.abs(ageImpact) * 200)).toFixed(0) + '%';
+  document.getElementById('xai-val-chol').innerText = Math.abs(cholImpact).toFixed(2);
+  document.getElementById('xai-bar-chol').style.width = (Math.min(0.95, Math.abs(cholImpact) * 250)).toFixed(0) + '%';
+  // Update Force Plot Layout
+  const lowPercent = Math.max(15, Math.min(85, (1 - boundedRisk) * 100));
+  const highPercent = 100 - lowPercent;
+  document.getElementById('force-lower').style.flex = lowPercent;
+  document.getElementById('force-higher').style.flex = highPercent;
+  document.getElementById('shap-out-val').innerText = boundedRisk.toFixed(2);
+}
 function switchXaiTab(tab){
   document.getElementById('xai-chart-imp').style.display=tab==='imp'?'flex':'none';
   document.getElementById('xai-chart-force').style.display=tab==='force'?'flex':'none';
   document.getElementById('xai-tab-imp').classList.toggle('active',tab==='imp');
   document.getElementById('xai-tab-force').classList.toggle('active',tab==='force');
 }
-
-/* ── PET BOOKING SIM ── */
-let nextId=106;
+// Trigger initial logic
+updateXaiSim();
+/* ── PYTHON E-COMMERCE GRAPH WIDGET (NEW) ── */
+const pyData = {
+  sales: {
+    title: "Monthly Gross Sales 2026",
+    caption: "Matplotlib Simulation: Sales grow in Q4 due to holiday discounts.",
+    cols: [
+      { name: "Q1", val: 45, display: "$45k" },
+      { name: "Q2", val: 58, display: "$58k" },
+      { name: "Q3", val: 74, display: "$74k" },
+      { name: "Q4", val: 96, display: "$96k" }
+    ]
+  },
+  pay: {
+    title: "Payment Mode Split",
+    caption: "Pandas value_counts: Credit card is the most common payment method.",
+    cols: [
+      { name: "Credit", val: 48, display: "48%" },
+      { name: "Pix", val: 26, display: "26%" },
+      { name: "Boleto", val: 18, display: "18%" },
+      { name: "E-Wallet", val: 8, display: "8%" }
+    ]
+  },
+  del: {
+    title: "Delivery Lead Status",
+    caption: "Matplotlib Bar: 87% deliveries arrive early or on-time.",
+    cols: [
+      { name: "On-Time", val: 68, display: "68%" },
+      { name: "Early", val: 19, display: "19%" },
+      { name: "Delayed", val: 10, display: "10%" },
+      { name: "Failure", val: 3, display: "3%" }
+    ]
+  }
+};
+function switchPyTab(tabId) {
+  // Update tabs active state
+  document.querySelectorAll('.pychart-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById(`py-tab-${tabId}`).classList.add('active');
+  const chartArea = document.getElementById('py-chart-area');
+  const caption = document.getElementById('py-chart-caption');
+  const activeData = pyData[tabId];
+  // Set Caption
+  caption.innerText = activeData.caption;
+  // Render columns
+  chartArea.innerHTML = '';
+  activeData.cols.forEach(col => {
+    const colDiv = document.createElement('div');
+    colDiv.className = 'pychart-bar-col';
+    colDiv.title = `${activeData.title} - ${col.name}: ${col.display}`;
+    const barVal = document.createElement('span');
+    barVal.className = 'pychart-bar-val';
+    barVal.innerText = col.display;
+    const bar = document.createElement('div');
+    bar.className = 'pychart-bar';
+    // Handle specific color for delay/failures
+    if (col.name === 'Delayed' || col.name === 'Failure') {
+      bar.style.background = 'linear-gradient(to top, #ef4444, #f87171)';
+    } else if (col.name === 'Early' || col.name === 'On-Time') {
+      bar.style.background = 'linear-gradient(to top, #10b981, #34d399)';
+    }
+    const barLbl = document.createElement('span');
+    barLbl.className = 'pychart-bar-lbl';
+    barLbl.innerText = col.name;
+    colDiv.appendChild(barVal);
+    colDiv.appendChild(bar);
+    colDiv.appendChild(barLbl);
+    chartArea.appendChild(colDiv);
+    // Trigger visual reflow for transitions
+    setTimeout(() => {
+      bar.style.height = `${col.val}%`;
+    }, 50);
+  });
+}
+// Run default tab onload
+switchPyTab('sales');
+/* ── SQL CONSOLE WIDGET (NEW) ── */
+const sqlQueries = {
+  customer_rfm: {
+    sql: `<span class="keyword">WITH</span> customer_spend <span class="keyword">AS</span> (
+  <span class="keyword">SELECT</span> customer_id, <span class="func">SUM</span>(payment_value) <span class="keyword">AS</span> total_val
+  <span class="keyword">FROM</span> orders <span class="join">JOIN</span> payments <span class="keyword">USING</span>(order_id)
+  <span class="keyword">GROUP BY</span> 1
+)
+<span class="keyword">SELECT</span> customer_id, total_val,
+  <span class="func">NTILE</span>(3) <span class="keyword">OVER</span> (<span class="keyword">ORDER BY</span> total_val <span class="keyword">DESC</span>) <span class="keyword">AS</span> segment_rank
+<span class="keyword">FROM</span> customer_spend <span class="keyword">LIMIT</span> 3;`,
+    headers: ["customer_id", "total_val ($)", "segment_rank"],
+    rows: [
+      ["c_834729", "8,940.50", "1 (VIP)"],
+      ["c_102839", "7,120.20", "1 (VIP)"],
+      ["c_482937", "4,850.10", "2 (Core)"]
+    ]
+  },
+  growth_mom: {
+    sql: `<span class="keyword">WITH</span> monthly_sales <span class="keyword">AS</span> (
+  <span class="keyword">SELECT</span> <span class="func">DATE_FORMAT</span>(order_date, <span class="str">'%Y-%m'</span>) <span class="keyword">AS</span> sales_month,
+         <span class="func">SUM</span>(payment_value) <span class="keyword">AS</span> total_rev
+  <span class="keyword">FROM</span> orders <span class="join">JOIN</span> payments <span class="keyword">USING</span>(order_id)
+  <span class="keyword">GROUP BY</span> 1
+)
+<span class="keyword">SELECT</span> sales_month, total_rev,
+  <span class="func">ROUND</span>((total_rev - <span class="func">LAG</span>(total_rev) <span class="keyword">OVER</span>(<span class="keyword">ORDER BY</span> sales_month)) 
+        / <span class="func">LAG</span>(total_rev) <span class="keyword">OVER</span>(<span class="keyword">ORDER BY</span> sales_month) * 100, 2) <span class="keyword">AS</span> growth_pct
+<span class="keyword">FROM</span> monthly_sales;`,
+    headers: ["sales_month", "total_rev ($)", "growth_pct (%)"],
+    rows: [
+      ["2025-11", "125,400.00", "+ 12.45"],
+      ["2025-12", "168,900.00", "+ 34.69"],
+      ["2026-01", "112,300.00", "- 33.51"]
+    ]
+  },
+  top_cat: {
+    sql: `<span class="keyword">SELECT</span> category_name, 
+       <span class="func">COUNT</span>(order_item_id) <span class="keyword">AS</span> items_sold,
+       <span class="func">ROUND</span>(<span class="func">SUM</span>(price), 2) <span class="keyword">AS</span> gross_revenue
+<span class="keyword">FROM</span> order_items 
+<span class="join">LEFT JOIN</span> products <span class="keyword">USING</span>(product_id)
+<span class="keyword">GROUP BY</span> 1
+<span class="keyword">ORDER BY</span> gross_revenue <span class="keyword">DESC</span>
+<span class="keyword">LIMIT</span> 3;`,
+    headers: ["category_name", "items_sold", "gross_revenue ($)"],
+    rows: [
+      ["Electronics", "1,842", "248,500.20"],
+      ["Health & Beauty", "2,105", "185,120.40"],
+      ["Home Appliances", "945", "142,950.00"]
+    ]
+  }
+};
+function loadSqlQuery() {
+  const selected = document.getElementById('sql-query-select').value;
+  const display = document.getElementById('sql-code-display');
+  display.innerHTML = sqlQueries[selected].sql;
+  // Clear query output table showing placeholder
+  const table = document.getElementById('sql-results-table');
+  table.innerHTML = `<tr><td style="text-align:center;color:var(--muted);padding:20px;">Click 'Run Query' to execute query against database schema...</td></tr>`;
+}
+function runMockQuery() {
+  const loader = document.getElementById('sql-results-loader');
+  const spinner = document.getElementById('sql-btn-spinner');
+  
+  // Show spinner loaders
+  loader.style.display = 'flex';
+  spinner.style.display = 'inline-block';
+  // 400ms query latency simulation
+  setTimeout(() => {
+    loader.style.display = 'none';
+    spinner.style.display = 'none';
+    const selected = document.getElementById('sql-query-select').value;
+    const queryMeta = sqlQueries[selected];
+    const table = document.getElementById('sql-results-table');
+    table.innerHTML = '';
+    // Create Headers
+    const trHead = document.createElement('tr');
+    queryMeta.headers.forEach(h => {
+      const th = document.createElement('th');
+      th.innerText = h;
+      trHead.appendChild(th);
+    });
+    table.appendChild(trHead);
+    // Create Rows
+    queryMeta.rows.forEach(r => {
+      const tr = document.createElement('tr');
+      r.forEach(val => {
+        const td = document.createElement('td');
+        td.innerText = val;
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    });
+  }, 450);
+}
+// Init display
+loadSqlQuery();
+/* ── SUPPLY CHAIN SQL ALERTS SIMULATOR (NEW) ── */
+const scData = [
+  { item: "📦 Item A (Alpha Supplier)", lead: 8, defect: 1.8, stock: 120 },
+  { item: "📦 Item B (Beta Logistics)", lead: 14, defect: 3.2, stock: 410 },
+  { item: "📦 Item C (Gamma Industrials)", lead: 18, defect: 0.5, stock: 75 }
+];
+function updateScSim() {
+  const limitLead = parseInt(document.getElementById('scmon-val-lead').value);
+  const limitDefect = parseFloat(document.getElementById('scmon-val-defect').value);
+  const limitStock = parseInt(document.getElementById('scmon-val-stock').value);
+  // Update slider displays
+  document.getElementById('scmon-lbl-lead').innerText = limitLead + 'd';
+  document.getElementById('scmon-lbl-defect').innerText = limitDefect + '%';
+  document.getElementById('scmon-lbl-stock').innerText = limitStock;
+  const tbody = document.getElementById('scmon-rows');
+  tbody.innerHTML = '';
+  let alertCount = 0;
+  scData.forEach(row => {
+    const tr = document.createElement('tr');
+    const tdItem = document.createElement('td');
+    tdItem.innerText = row.item;
+    tr.appendChild(tdItem);
+    // Lead Time cell
+    const tdLead = document.createElement('td');
+    tdLead.innerText = row.lead + 'd';
+    if (row.lead > limitLead) tdLead.style.color = '#ef4444';
+    tr.appendChild(tdLead);
+    // Defect cell
+    const tdDefect = document.createElement('td');
+    tdDefect.innerText = row.defect + '%';
+    if (row.defect > limitDefect) tdDefect.style.color = '#ef4444';
+    tr.appendChild(tdDefect);
+    // Stock cell
+    const tdStock = document.createElement('td');
+    tdStock.innerText = row.stock;
+    if (row.stock < limitStock) tdStock.style.color = '#ef4444';
+    tr.appendChild(tdStock);
+    // Calculate alerts
+    const alerts = [];
+    if (row.lead > limitLead) alerts.push('Delay');
+    if (row.defect > limitDefect) alerts.push('Defect');
+    if (row.stock < limitStock) alerts.push('Low Stock');
+    const tdStatus = document.createElement('td');
+    if (alerts.length > 0) {
+      alertCount += alerts.length;
+      tdStatus.innerHTML = alerts.map(a => `<span class="scmon-alert danger">${a}</span>`).join(' ');
+    } else {
+      tdStatus.innerHTML = `<span class="scmon-alert pass">Healthy</span>`;
+    }
+    tr.appendChild(tdStatus);
+    tbody.appendChild(tr);
+  });
+  // Update summary badge
+  const badge = document.getElementById('scmon-summary-badge');
+  badge.innerText = `${alertCount} Alert${alertCount === 1 ? '' : 's'} Active`;
+  if (alertCount === 0) {
+    badge.className = "scmon-summary-badge clean";
+  } else {
+    badge.className = "scmon-summary-badge";
+  }
+}
+// Init
+updateScSim();
+/* ── PET BOOKING SIM (UPGRADED STORAGE & MUTATION) ── */
+// Initial dataset in localstorage
+const defaultBookings = [
+  { id: 104, pet: "🐕 Dog (Bella)", service: "Full Groom", status: "Completed" },
+  { id: 105, pet: "🐈 Cat (Oliver)", service: "Bath & Brush", status: "Pending" }
+];
+function getStoredBookings() {
+  const data = localStorage.getItem('pet-grooming-bookings');
+  return data ? JSON.parse(data) : defaultBookings;
+}
+function saveStoredBookings(bookings) {
+  localStorage.setItem('pet-grooming-bookings', JSON.stringify(bookings));
+}
+function renderBookings() {
+  const bookings = getStoredBookings();
+  const tbody = document.getElementById('pet-rows');
+  tbody.innerHTML = '';
+  bookings.forEach(bk => {
+    const tr = document.createElement('tr');
+    
+    // Status color
+    let statusClass = 'pet-status-pending';
+    if (bk.status === 'Completed') statusClass = 'pet-status-completed';
+    else if (bk.status === 'In Progress') statusClass = 'pet-status-inprogress';
+    tr.innerHTML = `
+      <td>#${bk.id}</td>
+      <td><strong>${bk.pet}</strong></td>
+      <td>${bk.service}</td>
+      <td>
+        <span class="pet-status-badge ${statusClass}" onclick="toggleBookingStatus(${bk.id})">
+          ${bk.status}
+        </span>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
 function addBooking(){
   const pet=document.getElementById('pet-type').value;
-  const svc=document.getElementById('pet-service');
-  const service=svc.options[svc.selectedIndex].text.replace(/ \(\$\d+\)/,'');
-  const tbody=document.getElementById('pet-rows');
-  const tr=document.createElement('tr');
-  tr.innerHTML=`<td>#${nextId++}</td><td>${pet}</td><td>${service}</td><td><span style="color:#e65100;font-weight:700">Pending</span></td>`;
-  tr.style.opacity=0;
-  tbody.appendChild(tr);
-  setTimeout(()=>tr.style.cssText+=';opacity:1;transition:opacity .4s',10);
-  if(tbody.children.length>4)tbody.removeChild(tbody.children[0]);
+  const svc=document.getElementById('pet-service').value;
+  const bookings = getStoredBookings();
+  // Find next incremented ID
+  const nextId = bookings.length > 0 ? Math.max(...bookings.map(b => b.id)) + 1 : 101;
+  const newBooking = { id: nextId, pet: pet, service: svc, status: "Pending" };
+  bookings.push(newBooking);
+  // Cap at 4 entries to prevent scrolling overflow in layout widget
+  if(bookings.length > 4) bookings.shift();
+  saveStoredBookings(bookings);
+  renderBookings();
 }
+function toggleBookingStatus(id) {
+  const bookings = getStoredBookings();
+  const index = bookings.findIndex(b => b.id === id);
+  if (index !== -1) {
+    const currentStatus = bookings[index].status;
+    let nextStatus = 'Pending';
+    if (currentStatus === 'Pending') nextStatus = 'In Progress';
+    else if (currentStatus === 'In Progress') nextStatus = 'Completed';
+    else nextStatus = 'Pending';
+    bookings[index].status = nextStatus;
+    saveStoredBookings(bookings);
+    renderBookings();
+  }
+}
+function clearBookings() {
+  localStorage.setItem('pet-grooming-bookings', JSON.stringify(defaultBookings));
+  renderBookings();
+}
+// Initial draw
+renderBookings();
 </script>
 </body>
 </html>
