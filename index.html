@@ -63,8 +63,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px sol
 .screenshot:hover img{transform:scale(1.03)}
 
 /* click-to-expand hint */
-.expand-hint{position:absolute;bottom:10px;right:10px;background:rgba(31,56,100,.75);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;opacity:0;transition:opacity .25s;pointer-events:none;letter-spacing:.02em}
-.screenshot:hover .expand-hint{opacity:1}
+.expand-hint{display:none}
 
 .carousel-track{display:flex;transition:transform .4s ease-in-out;width:100%;height:100%}
 .carousel-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0}
@@ -257,8 +256,8 @@ footer a{color:var(--accent)}
 
       <!-- Supply Chain -->
       <div class="pcard">
-        <div class="screenshot carousel" id="carousel-supplychain"
-             onclick="openLightbox('lb-supplychain')">
+        <div class="screenshot carousel" id="carousel-supplychain">
+             <!--onclick="openLightbox('lb-supplychain')"-->
           <div class="carousel-track">
             <img src="Executive Overview.png" alt="Supply Chain Dashboard — Executive Overview"/>
             <img src="Inventory and Supplier Performance.png" alt="Supply Chain Dashboard — Inventory & Supplier"/>
@@ -269,7 +268,7 @@ footer a{color:var(--accent)}
             <span class="dot active" onclick="event.stopPropagation();setSlide('carousel-supplychain',0)"></span>
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-supplychain',1)"></span>
           </div>
-          <span class="expand-hint">&#128247; Click to expand</span>
+        <!--  <span class="expand-hint">&#128247; Click to expand</span>-->
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -289,8 +288,8 @@ footer a{color:var(--accent)}
       
       <!-- HR Analytics -->
       <div class="pcard">
-        <div class="screenshot carousel" id="carousel-hr"
-             onclick="openLightbox('lb-hr')">
+        <div class="screenshot carousel" id="carousel-hr">
+             <!--onclick="openLightbox('lb-hr')">-->
           <div class="carousel-track">
             <img src="Executive Summary.png" alt="HR Dashboard — Executive Summary"/>
             <img src="Employee Demographics.png" alt="HR Dashboard — Demographics"/>
@@ -303,7 +302,7 @@ footer a{color:var(--accent)}
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-hr',1)"></span>
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-hr',2)"></span>
           </div>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <!--<span class="expand-hint">&#128247; Click to expand</span>-->
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -323,9 +322,9 @@ footer a{color:var(--accent)}
 
       <!-- Superstore -->
       <div class="pcard">
-        <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+        <div class="screenshot"><!-- onclick="openLightbox('lb-superstore')" style="cursor:pointer">-->
           <img src="Dashboard.png" alt="Superstore Sales Dashboard"/>
-          <span class="expand-hint">&#128247; Click to expand</span>
+         <!-- <span class="expand-hint">&#128247; Click to expand</span>-->
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -345,9 +344,9 @@ footer a{color:var(--accent)}
       
   <!-- E-Commerce Analytics using Python-->
       <div class="pcard">
-        <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+        <div class="screenshot" ><!--onclick="openLightbox('lb-superstore')" style="cursor:pointer"-->
           <img src="E-Com_Python.png" alt="E-Commerce Dashboard"/>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <!--<span class="expand-hint">&#128247; Click to expand</span>-->
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -366,9 +365,9 @@ footer a{color:var(--accent)}
 
 <!-- E-Commerce Analytics using SQL  -->
       <div class="pcard">
-        <div class="screenshot" onclick="openLightbox('lb-superstore')" style="cursor:pointer">
+        <div class="screenshot"><!-- onclick="openLightbox('lb-superstore')" style="cursor:pointer"-->
           <img src="E-Com_SQL.png" alt="E-Commerce SQL"/>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <!--<span class="expand-hint">&#128247; Click to expand</span>-->
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
@@ -387,8 +386,8 @@ footer a{color:var(--accent)}
 
       <!-- Supply Chain -->
       <div class="pcard">
-        <div class="screenshot carousel" id="carousel-supplychain"
-             onclick="openLightbox('lb-supplychain')">
+        <div class="screenshot carousel" id="carousel-supplychain">
+             <!--onclick="openLightbox('lb-supplychain')"-->
           <div class="carousel-track">
             <img src="Supply_Chain .png" alt="Supply Chain Query"/>
           </div>
@@ -398,7 +397,7 @@ footer a{color:var(--accent)}
             <span class="dot active" onclick="event.stopPropagation();setSlide('carousel-supplychain',0)"></span>
             <span class="dot" onclick="event.stopPropagation();setSlide('carousel-supplychain',1)"></span>
           </div>
-          <span class="expand-hint">&#128247; Click to expand</span>
+          <!--<span class="expand-hint">&#128247; Click to expand</span>-->
         </div>
         <div class="pcard-body">
           <div class="pcard-top">
