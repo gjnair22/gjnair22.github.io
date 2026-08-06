@@ -179,6 +179,33 @@ nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px sol
 .lang .lang-name{font-size:15px;font-weight:600;color:var(--navy)}
 .lang .lang-level{font-size:13px;color:var(--muted)}
 
+/* ── LEADERSHIP ── */
+.lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.lead-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:10px;transition:box-shadow .25s,border-color .25s,transform .25s}
+.lead-card:hover{box-shadow:0 6px 28px rgba(30,56,100,.1);border-color:var(--accent-mid);transform:translateY(-4px)}
+.lead-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:2px}
+.lead-icon.a{background:var(--accent-light)}
+.lead-icon.b{background:#EAF3DE}
+.lead-icon.c{background:#FAEEDA}
+.lead-card h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35}
+.lead-sub{font-size:13px;color:var(--accent);font-weight:600}
+.lead-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.lead-list li{font-size:14px;color:var(--muted);line-height:1.6;padding-left:17px;position:relative}
+.lead-list li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-mid)}
+
+.strengths-wrap{margin-top:2rem}
+.strengths-label{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--navy);margin-bottom:14px}
+.strength-pills{display:flex;flex-wrap:wrap;gap:10px}
+.strength-pill{font-size:13px;padding:7px 16px;border-radius:100px;background:var(--accent-light);border:1px solid var(--accent-mid);color:var(--accent);font-weight:600;transition:background .2s,color .2s,transform .2s,box-shadow .2s;cursor:default}
+.strength-pill:hover{background:var(--accent);color:#fff;transform:translateY(-3px);box-shadow:0 6px 16px rgba(46,116,181,.3)}
+
+/* fade-up on scroll */
+.fade-up{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.in-view{opacity:1;transform:translateY(0)}
+.lead-grid .fade-up:nth-child(1){transition-delay:0s}
+.lead-grid .fade-up:nth-child(2){transition-delay:.12s}
+.lead-grid .fade-up:nth-child(3){transition-delay:.24s}
+
 /* ── FOOTER ── */
 footer{text-align:center;padding:2.5rem 2rem;font-size:14px;color:var(--muted);border-top:1px solid var(--border);background:var(--bg);margin-top:2rem}
 footer a{color:var(--accent)}
@@ -193,6 +220,11 @@ footer a{color:var(--accent)}
   .edu-right{text-align:left}
   .hero-text h1{font-size:28px}
   .avatar{width:96px;height:96px;font-size:30px}
+  .lead-grid{grid-template-columns:1fr}
+  .strength-pills{justify-content:center}
+}
+@media(min-width:701px) and (max-width:900px){
+  .lead-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -247,6 +279,68 @@ footer a{color:var(--accent)}
     <div class="stat-card"><div class="num">86.51%</div><div class="lbl">M.Sc. aggregate</div></div>
     <div class="stat-card"><div class="num">2</div><div class="lbl">Certifications</div></div>
     <div class="stat-card"><div class="num">5</div><div class="lbl">Languages spoken</div></div>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <div class="section" id="leadership">
+    <div class="section-title">Leadership &amp; Organizational Experience</div>
+    <div class="lead-grid">
+
+      <div class="lead-card fade-up">
+        <div class="lead-icon a">📋</div>
+        <h3>Department Documentation &amp; Reporting (M.Sc.)</h3>
+        <span class="lead-sub">Mount Carmel College Autonomous, Bengaluru</span>
+        <ul class="lead-list">
+          <li>Prepared official reports for departmental events including guest lectures, workshops, seminars, industrial visits, technical sessions, and student activities.</li>
+          <li>Coordinated with faculty members to document event proceedings, participant details, outcomes, and post-event summaries.</li>
+          <li>Ensured timely submission of professional reports for departmental records and institutional documentation.</li>
+          <li>Developed strong documentation, professional communication, and administrative coordination skills.</li>
+        </ul>
+      </div>
+
+      <div class="lead-card fade-up">
+        <div class="lead-icon b">🤝</div>
+        <h3>Program Coordinator — MCCIIE School Outreach Initiative</h3>
+        <span class="lead-sub">Mount Carmel Centre for Innovation &amp; Entrepreneurship (MCCIIE)</span>
+        <ul class="lead-list">
+          <li>Coordinated MCCIIE's first school outreach initiative by connecting the institution with a school.</li>
+          <li>Assisted in planning, stakeholder communication, scheduling, and logistics from planning through successful execution.</li>
+          <li>Worked with faculty, organizers, and school administration to ensure seamless coordination.</li>
+          <li>Supported event hosting, participant coordination, and on-site execution.</li>
+        </ul>
+      </div>
+
+      <div class="lead-card fade-up">
+        <div class="lead-icon c">🚚</div>
+        <h3>Logistics Head — Carmel Chips Association</h3>
+        <span class="lead-sub">Department Association | B.Sc. Final Year</span>
+        <ul class="lead-list">
+          <li>Led logistics planning and execution for departmental association events.</li>
+          <li>Coordinated venue arrangements, resource allocation, volunteer management, and event operations.</li>
+          <li>Collaborated with faculty coordinators and student volunteers to ensure successful execution of departmental activities.</li>
+          <li>Demonstrated leadership, organizational skills, problem-solving, and effective team coordination.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="strengths-wrap">
+      <div class="strengths-label">CORE STRENGTHS</div>
+      <div class="strength-pills">
+        <span class="strength-pill">Leadership</span>
+        <span class="strength-pill">Program Coordination</span>
+        <span class="strength-pill">Event Management</span>
+        <span class="strength-pill">Stakeholder Management</span>
+        <span class="strength-pill">Documentation &amp; Report Writing</span>
+        <span class="strength-pill">Administrative Coordination</span>
+        <span class="strength-pill">Logistics Management</span>
+        <span class="strength-pill">Planning &amp; Organization</span>
+        <span class="strength-pill">Team Collaboration</span>
+        <span class="strength-pill">Professional Communication</span>
+        <span class="strength-pill">Time Management</span>
+        <span class="strength-pill">Problem Solving</span>
+      </div>
+    </div>
   </div>
 
   <!-- PROJECTS -->
@@ -781,6 +875,24 @@ function addBooking(){
   setTimeout(()=>tr.style.cssText+=';opacity:1;transition:opacity .4s',10);
   if(tbody.children.length>4)tbody.removeChild(tbody.children[0]);
 }
+
+/* ── FADE-UP ON SCROLL ── */
+(function(){
+  const faders=document.querySelectorAll('.fade-up');
+  if(!('IntersectionObserver' in window)){
+    faders.forEach(el=>el.classList.add('in-view'));
+    return;
+  }
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+  faders.forEach(el=>observer.observe(el));
+})();
 </script>
 </body>
 </html>
